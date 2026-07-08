@@ -1,55 +1,59 @@
 ---
-name: bingo_last_month_result
-description: '사용자가 지난달 빙고 달성 여부와 보상 젤리를 물을 때 사용합니다. 예: "지난달에 내가 빙고 했어?"'
+name: jelly_conversion_rate_inquiry
+description: '사용자가 젤리를 모니머니로 바꾸면 얼마인지, 적립 비율·레벨을 물을 때 사용합니다. 회원등급 산정 후 전환 비율 안내에 적합합니다. 예: "지금 젤리 모니머니로
+  바꾸면 얼마야?"'
 metadata:
   domain: monimo
   sector: non_finance
   case_type: normal
-  target: 빙고게임
-  seq: '136'
-  dataset_id: NF_MONIMO_136
+  target: 젤리 상점
+  seq: '101'
+  dataset_id: NF_MONIMO_101
   required_tools:
-  - bingo_status_inquiry
+  - jelly_balance_inquiry
+  - jelly_level_inquiry
   hooks: scripts/hook.py
   version: 1.0.0
 ---
 
-# 전월 빙고게임 달성여부 확인
+# 적립 비율/레벨 확인
 
-리워드 게임/미션(걷기·빙고·모니스쿨·친구초대·이달의 미션)의 현황을 조회해 안내한다.
+젤리 보유·적립·전환·챌린지 현황을 조회해 안내한다.
 
 ## Instructions
-1. 사용자 질의에서 조회 대상 서비스와 항목(현황/달성 여부/가능 목록/힌트)을 파악합니다.
-2. `bingo_status_inquiry` 툴을 호출해 빙고게임 참여 현황(달성/미달성 미션, 스티커, 전월 결과)을 조회합니다.
-3. 조회 결과를 달성/미달성 구분 등 세부 기준과 함께 안내하고, 해당 서비스 화면 이동 배너를 제공합니다.
-4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+1. 사용자 질의에서 조회 항목(보유 개수/적립내역/전환 비율/챌린지 현황)과 기준(월)을 파악합니다.
+2. `jelly_balance_inquiry` 툴을 호출해 현재 보유한 젤리 개수(일반/스페셜)를 조회합니다.
+3. `jelly_level_inquiry` 툴을 호출해 젤리 적립 레벨·회원등급과 모니머니 전환 비율을 조회합니다.
+4. 조회 결과를 일반젤리/스페셜젤리 구분 등 세부 기준과 함께 안내하고, 젤리 상점·챌린지 화면 이동 배너를 제공합니다.
+5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
 
 > 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 사용 툴 명세
 호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
-- `bingo_status_inquiry(year_month: Optional[str] = None)` — 빙고게임 참여 현황(달성/미달성 미션, 스티커, 전월 결과)을 조회합니다
+- `jelly_balance_inquiry()` — 현재 보유한 젤리 개수(일반/스페셜)를 조회합니다
+- `jelly_level_inquiry()` — 젤리 적립 레벨·회원등급과 모니머니 전환 비율을 조회합니다
 
 ## 응답 가이드
-- 지난달 빙고 게임 이력 참고하여 달성 값과 보상 젤리 개수 안내
+- 젤리 상점 화면 하단 '내 레벨' 화면으로 포커싱하여 안내
 
 ## 예외 처리
-- 서비스 미참여 사용자인 경우: 참여 방법을 안내합니다.
+- 챌린지 신청 가능 기간(매월 16일~말일)이 아닌 경우: 신청 가능 기간을 안내합니다.
 - 조회 대상을 특정하지 못한 경우: 후보를 제시하거나 사용자에게 직접 확인합니다.
 - 조회 결과가 없는 경우: 해당 내역이 없다는 사실을 안내하고 마칩니다.
 - 응답에 사용자가 요청한 필드가 없는 경우: 제공 불가 사실을 알리고, 안내 가능한 다른 항목을 제안합니다.
 - API 오류 또는 응답 지연: 자동으로 재시도하지 않습니다(중복 조회로 이어질 수 있으므로). 조회 미완료를 알리고 재시도 여부를 묻습니다.
 
 ## 유저향 최종 안내 문구
-조회 성공: "{서비스} 현황이에요. {요약}"
-미참여: "아직 {서비스}에 참여하지 않으셨어요. 지금 시작해 보시겠어요?"
+조회 성공: "{mm.dd}일 기준 보유한 젤리는 총 {n}개예요. (일반젤리: {n1}개, 스페셜젤리: {n2}개)"
+내역 없음: "{기준}에는 젤리 적립 내역이 없어요."
 
 ## Hook (scripts/hook.py)
 이 스킬의 훅 스크립트 전문. MCP 서버의 `run_skill_hook(skill, stage, ...)` 툴이 이 코드를 실행한다 — 에이전트는 코드를 직접 실행하지 말고 툴을 호출한다.
 
 ```python
 # -*- coding: utf-8 -*-
-"""Hook script for skill `bingo_last_month_result` (자동 생성).
+"""Hook script for skill `jelly_conversion_rate_inquiry` (자동 생성).
 
 스킬 번들 리소스(scripts/) — 에이전트 런타임 또는 MCP 서버의 `run_skill_hook`
 툴이 단계별로 호출한다. 표준 stdlib만 사용하는 self-contained 스크립트.
@@ -61,12 +65,12 @@ Stages:
   finalize(results)              — 유저향 최종 안내 문구 템플릿 선택
 """
 
-SKILL_NAME = 'bingo_last_month_result'
+SKILL_NAME = 'jelly_conversion_rate_inquiry'
 CASE_TYPE = 'normal'
 FLOW = 'query'
-REQUIRED_TOOLS = ['bingo_status_inquiry']
+REQUIRED_TOOLS = ['jelly_balance_inquiry', 'jelly_level_inquiry']
 ACTION_TOOLS = []    # 사용자 확인(confirmed=True) 없이는 호출 금지
-PHRASES = ['조회 성공: "{서비스} 현황이에요. {요약}"', '미참여: "아직 {서비스}에 참여하지 않으셨어요. 지금 시작해 보시겠어요?"']
+PHRASES = ['조회 성공: "{mm.dd}일 기준 보유한 젤리는 총 {n}개예요. (일반젤리: {n1}개, 스페셜젤리: {n2}개)"', '내역 없음: "{기준}에는 젤리 적립 내역이 없어요."']
 
 _MONTH_PARAMS = ("year_month",)
 

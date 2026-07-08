@@ -26,9 +26,9 @@ FAQS = [
     {"faq_id": "F004", "category": "보험금청구", "question": "보험금 청구는 어떻게 하나요?", "answer": "마이삼성 > 보험 > 보험금청구에서 관계사(생명/화재) 화면으로 이동해 청구할 수 있습니다. 진단서 등 서류를 사진으로 제출하면 접수됩니다."},
     {"faq_id": "F005", "category": "모니머니", "question": "모니머니는 어떻게 사용하나요?", "answer": "모니머니는 충전/송금/결제, 투자, 보험료 납입에 사용할 수 있는 선불전자지급수단입니다. 혜택 화면에서 적립하고 결제 시 사용할 수 있습니다."},
     {"faq_id": "F006", "category": "모니머니", "question": "모니머니 사용 시 유의사항은?", "answer": "1일 출금한도 200만원, 보유한도 200만원이며 유효기간(최종 적립일로부터 5년)이 지나면 소멸될 수 있습니다. 일부 가맹점은 결제가 제한됩니다."},
-    {"faq_id": "F007", "category": "켈리", "question": "켈리 챌린지가 뭐예요?", "answer": "걷기 등 미션을 달성하면 켈리를 받는 리워드 서비스입니다. 매월 16일~말일에 다음 달 챌린지를 신청할 수 있습니다."},
-    {"faq_id": "F008", "category": "빙고", "question": "빙고게임은 어떻게 하나요?", "answer": "매월 3x3 빙고판의 미션 9개를 수행해 스티커를 모으고, 한 줄 완성 시마다 켈리를 받습니다. 매월 1일 오픈되며 말일에 종료됩니다."},
-    {"faq_id": "F009", "category": "모니스쿨", "question": "모니스쿨은 어떤 서비스인가요?", "answer": "매월 교시별 금융 퀴즈를 풀고 정답 시 켈리를 받는 학습형 이벤트입니다. 1~4교시 문제가 순차 오픈되며 힌트 화면이 제공됩니다."},
+    {"faq_id": "F007", "category": "젤리", "question": "젤리 챌린지가 뭐예요?", "answer": "걷기 등 미션을 달성하면 젤리를 받는 리워드 서비스입니다. 매월 16일~말일에 다음 달 챌린지를 신청할 수 있습니다."},
+    {"faq_id": "F008", "category": "빙고", "question": "빙고게임은 어떻게 하나요?", "answer": "매월 3x3 빙고판의 미션 9개를 수행해 스티커를 모으고, 한 줄 완성 시마다 젤리를 받습니다. 매월 1일 오픈되며 말일에 종료됩니다."},
+    {"faq_id": "F009", "category": "모니스쿨", "question": "모니스쿨은 어떤 서비스인가요?", "answer": "매월 교시별 금융 퀴즈를 풀고 정답 시 젤리를 받는 학습형 이벤트입니다. 1~4교시 문제가 순차 오픈되며 힌트 화면이 제공됩니다."},
     {"faq_id": "F010", "category": "친구초대", "question": "친구초대 혜택이 뭐예요?", "answer": "내 초대코드로 친구가 가입하면 나와 친구 모두 모니머니를 받습니다. 초대 성공 인원에 따라 추가 보상이 지급됩니다."},
     {"faq_id": "F011", "category": "카드발급", "question": "가족카드 발급이 가능한가요?", "answer": "모니모 카드는 본인회원 기준 가족카드 발급이 가능합니다(배우자/부모/자녀). 카드 신청 화면에서 가족카드를 선택해 신청하세요."},
     {"faq_id": "F012", "category": "증권", "question": "타사 연금을 삼성증권으로 가져오려면?", "answer": "연금저축 이전 제도를 통해 타사 연금저축을 삼성증권 계좌로 이전할 수 있습니다. 전체메뉴 > 증권 > 연금 > 연금저축 이전에서 신청하면 기존 금융사 확인 후 이전이 완료됩니다."},
@@ -75,7 +75,7 @@ EVENTS = [
     {"event_id": "EV002", "company": "삼성카드", "name": "여름휴가 결제 캐시백", "period": "2026-07-01 ~ 2026-08-31", "benefit": "해외 결제 5% 캐시백 (최대 3만원)", "announce_date": None, "participated": False},
     {"event_id": "EV003", "company": "삼성카드", "name": "15만원 캐시백 이벤트", "period": "2026-06-01 ~ 2026-07-31", "benefit": "신규 발급+30만원 이용 시 15만원 캐시백", "announce_date": None, "participated": True, "participated_at": "2026-06-05"},
     {"event_id": "EV004", "company": "삼성생명", "name": "연금저축보험 첫가입 축하금", "period": "2026-07-01 ~ 2026-09-30", "benefit": "첫 가입 시 모니머니 3만원 지급", "announce_date": None, "participated": False},
-    {"event_id": "EV005", "company": "모니모", "name": "켈리 챌린지 더블 적립", "period": "2026-07-01 ~ 2026-07-31", "benefit": "챌린지 달성 켈리 2배 적립", "announce_date": None, "participated": False},
+    {"event_id": "EV005", "company": "모니모", "name": "젤리 챌린지 더블 적립", "period": "2026-07-01 ~ 2026-07-31", "benefit": "챌린지 달성 젤리 2배 적립", "announce_date": None, "participated": False},
 ]
 
 ASSET_SUMMARY = {
@@ -137,9 +137,9 @@ ACCOUNT_TRANSACTIONS = [
     {"date": "2026-07-05", "account_id": "AC001", "type": "출금", "description": "카드대금 자동이체", "amount": -1_012_300},
 ]
 
-KELLY = {
+JELLY = {
     "balance": {"normal": 12, "special": 2},
-    "level": {"level": 3, "grade": "GOLD", "conversion_rate": "켈리 1개 = 모니머니 10원", "mission_bonus": True, "mydata_bonus": True},
+    "level": {"level": 3, "grade": "GOLD", "conversion_rate": "젤리 1개 = 모니머니 10원", "mission_bonus": True, "mydata_bonus": True},
     "history": {
         "2026-07": [{"date": "2026-07-05", "type": "적립", "reason": "걷기 챌린지", "kind": "일반", "count": 3}, {"date": "2026-07-03", "type": "적립", "reason": "빙고 1줄 달성", "kind": "스페셜", "count": 1}, {"date": "2026-07-01", "type": "사용", "reason": "모니머니 전환", "kind": "일반", "count": -5}],
         "2026-06": [{"date": "2026-06-28", "type": "적립", "reason": "걷기 챌린지", "kind": "일반", "count": 8}, {"date": "2026-06-15", "type": "적립", "reason": "이달의 미션", "kind": "일반", "count": 4}, {"date": "2026-06-10", "type": "적립", "reason": "모니스쿨 정답", "kind": "스페셜", "count": 2}],
@@ -148,8 +148,8 @@ KELLY = {
 }
 
 CHALLENGES = {
-    "participating": [{"name": "걷기 챌린지", "period": "2026-07-01 ~ 2026-07-31", "goal": "일 5,000보 20일 달성", "achieved_days": 14, "reward": "켈리 최대 30개"}],
-    "available": [{"name": "8월 걷기 챌린지", "apply_period": "2026-07-16 ~ 2026-07-31", "reward": "켈리 최대 30개"}, {"name": "8월 아침기상 챌린지", "apply_period": "2026-07-16 ~ 2026-07-31", "reward": "켈리 최대 20개"}],
+    "participating": [{"name": "걷기 챌린지", "period": "2026-07-01 ~ 2026-07-31", "goal": "일 5,000보 20일 달성", "achieved_days": 14, "reward": "젤리 최대 30개"}],
+    "available": [{"name": "8월 걷기 챌린지", "apply_period": "2026-07-16 ~ 2026-07-31", "reward": "젤리 최대 30개"}, {"name": "8월 아침기상 챌린지", "apply_period": "2026-07-16 ~ 2026-07-31", "reward": "젤리 최대 20개"}],
     "apply_window": "매월 16일~말일에 다음 달 챌린지 신청 가능",
 }
 
@@ -179,20 +179,20 @@ MONIMONEY = {
     "balance": 152_300,
     "info": {"withdraw_limit_daily": 2_000_000, "balance_limit": 2_000_000, "expiry": "2031-07-01 (최종 적립일로부터 5년)"},
     "history": {
-        "2026-07": [{"date": "2026-07-05", "type": "출금", "amount": -20_000, "reason": "모니모 KB통장 자동충전 약정에 따른 자동출금", "channel": "KB통장"}, {"date": "2026-07-03", "type": "적립", "amount": 3_200, "reason": "카드 결제 적립"}, {"date": "2026-07-01", "type": "적립", "amount": 120, "reason": "켈리 전환"}],
+        "2026-07": [{"date": "2026-07-05", "type": "출금", "amount": -20_000, "reason": "모니모 KB통장 자동충전 약정에 따른 자동출금", "channel": "KB통장"}, {"date": "2026-07-03", "type": "적립", "amount": 3_200, "reason": "카드 결제 적립"}, {"date": "2026-07-01", "type": "적립", "amount": 120, "reason": "젤리 전환"}],
         "2026-04": [{"date": "2026-04-20", "type": "적립", "amount": 5_400, "reason": "이벤트 보상"}, {"date": "2026-04-12", "type": "적립", "amount": 2_100, "reason": "카드 결제 적립"}, {"date": "2026-04-02", "type": "충전", "amount": 50_000, "reason": "계좌 충전"}],
     },
     "restriction": {"restricted": True, "reason": "잔불(진행 중 결제 정산 대기) 금액 30,000원이 있어 해당 금액은 정산 완료 후 출금 가능합니다.", "available_amount": 122_300},
 }
 
 WALKING = {"today_steps": 6_842, "today_km": 4.8, "mission_goal": 5_000,
-           "monthly": {"2026-07": {"achieved_days": 5, "reward_kelly": 5}, "2026-04": {"achieved_days": 17, "reward_kelly": 17}}}
+           "monthly": {"2026-07": {"achieved_days": 5, "reward_jelly": 5}, "2026-04": {"achieved_days": 17, "reward_jelly": 17}}}
 
 BINGO = {
     "participating": True,
     "board": {"total_missions": 9, "sticker_owned": 3, "sticker_attached": 4, "missions_remaining": 2, "bonus_sticker": 1,
               "lines_done": 1, "lines_for_bingo": 3},
-    "last_month": {"achieved": True, "lines": 3, "reward_kelly": 15},
+    "last_month": {"achieved": True, "lines": 3, "reward_jelly": 15},
     "missions": [{"mission": "걷기 5,000보 3회", "how": "걷기 서비스에서 달성"}, {"mission": "소비 리포트 확인", "how": "자산 > 소비 리포트 열람"}, {"mission": "모니스쿨 1회 응시", "how": "모니스쿨 문제 풀기"}],
     "consent_required": "개인(신용)정보 수집·이용 동의 필요",
 }
@@ -201,7 +201,7 @@ MONISCHOOL = {
     "current_round": "2026년 7월 2회차",
     "status": [{"session": 1, "title": "금융 영역", "participated": True, "correct": True}, {"session": 2, "title": "소비 영역", "participated": True, "correct": False}, {"session": 3, "title": "건강 영역", "participated": False, "correct": None}, {"session": 4, "title": "상식 영역", "participated": False, "correct": None}],
     "quizzes": [{"session": 3, "title": "건강 영역", "question": "스테이크에 곁들이면 소화를 돕는 향신료는?", "hint": "톡 쏘는 검은 알갱이예요.", "hint_url": "monimo://school/hint/3"}, {"session": 4, "title": "상식 영역", "question": "한국은행이 결정하는 정책금리는?", "hint": "'기준'이 되는 금리예요.", "hint_url": "monimo://school/hint/4"}],
-    "reward": "정답 시 켈리 2개",
+    "reward": "정답 시 젤리 2개",
 }
 
 REFERRAL = {"code": "MONI-JJ2026", "link": "https://monimo.com/invite/MONI-JJ2026", "invited_success": 4, "reward_per_invite": "모니머니 5,000원", "next_tier": "6명 달성 시 추가 10,000원"}
@@ -209,12 +209,12 @@ REFERRAL = {"code": "MONI-JJ2026", "link": "https://monimo.com/invite/MONI-JJ202
 MONTHLY_MISSIONS = {
     "status": {"achieved": 3, "total": 6},
     "missions": [
-        {"name": "오늘의 영어 확인하기", "achieved": False, "reward": "켈리 1개", "landing": "monimo://mission/english"},
-        {"name": "출석체크 15일", "achieved": True, "reward": "켈리 3개"},
-        {"name": "소비 리포트 확인", "achieved": True, "reward": "켈리 1개"},
+        {"name": "오늘의 영어 확인하기", "achieved": False, "reward": "젤리 1개", "landing": "monimo://mission/english"},
+        {"name": "출석체크 15일", "achieved": True, "reward": "젤리 3개"},
+        {"name": "소비 리포트 확인", "achieved": True, "reward": "젤리 1개"},
         {"name": "친구초대 1회", "achieved": False, "reward": "모니머니 5,000원", "landing": "monimo://mission/referral"},
-        {"name": "걷기 10만보", "achieved": True, "reward": "켈리 5개"},
-        {"name": "금융상품 둘러보기", "achieved": False, "reward": "켈리 1개", "landing": "monimo://mission/products"},
+        {"name": "걷기 10만보", "achieved": True, "reward": "젤리 5개"},
+        {"name": "금융상품 둘러보기", "achieved": False, "reward": "젤리 1개", "landing": "monimo://mission/products"},
     ],
 }
 

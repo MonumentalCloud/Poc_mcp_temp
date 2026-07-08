@@ -1,55 +1,5 @@
----
-name: bingo_last_month_result
-description: '사용자가 지난달 빙고 달성 여부와 보상 젤리를 물을 때 사용합니다. 예: "지난달에 내가 빙고 했어?"'
-metadata:
-  domain: monimo
-  sector: non_finance
-  case_type: normal
-  target: 빙고게임
-  seq: '136'
-  dataset_id: NF_MONIMO_136
-  required_tools:
-  - bingo_status_inquiry
-  hooks: scripts/hook.py
-  version: 1.0.0
----
-
-# 전월 빙고게임 달성여부 확인
-
-리워드 게임/미션(걷기·빙고·모니스쿨·친구초대·이달의 미션)의 현황을 조회해 안내한다.
-
-## Instructions
-1. 사용자 질의에서 조회 대상 서비스와 항목(현황/달성 여부/가능 목록/힌트)을 파악합니다.
-2. `bingo_status_inquiry` 툴을 호출해 빙고게임 참여 현황(달성/미달성 미션, 스티커, 전월 결과)을 조회합니다.
-3. 조회 결과를 달성/미달성 구분 등 세부 기준과 함께 안내하고, 해당 서비스 화면 이동 배너를 제공합니다.
-4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
-
-> 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
-
-## 사용 툴 명세
-호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
-- `bingo_status_inquiry(year_month: Optional[str] = None)` — 빙고게임 참여 현황(달성/미달성 미션, 스티커, 전월 결과)을 조회합니다
-
-## 응답 가이드
-- 지난달 빙고 게임 이력 참고하여 달성 값과 보상 젤리 개수 안내
-
-## 예외 처리
-- 서비스 미참여 사용자인 경우: 참여 방법을 안내합니다.
-- 조회 대상을 특정하지 못한 경우: 후보를 제시하거나 사용자에게 직접 확인합니다.
-- 조회 결과가 없는 경우: 해당 내역이 없다는 사실을 안내하고 마칩니다.
-- 응답에 사용자가 요청한 필드가 없는 경우: 제공 불가 사실을 알리고, 안내 가능한 다른 항목을 제안합니다.
-- API 오류 또는 응답 지연: 자동으로 재시도하지 않습니다(중복 조회로 이어질 수 있으므로). 조회 미완료를 알리고 재시도 여부를 묻습니다.
-
-## 유저향 최종 안내 문구
-조회 성공: "{서비스} 현황이에요. {요약}"
-미참여: "아직 {서비스}에 참여하지 않으셨어요. 지금 시작해 보시겠어요?"
-
-## Hook (scripts/hook.py)
-이 스킬의 훅 스크립트 전문. MCP 서버의 `run_skill_hook(skill, stage, ...)` 툴이 이 코드를 실행한다 — 에이전트는 코드를 직접 실행하지 말고 툴을 호출한다.
-
-```python
 # -*- coding: utf-8 -*-
-"""Hook script for skill `bingo_last_month_result` (자동 생성).
+"""Hook script for skill `jelly_exchange_request` (자동 생성).
 
 스킬 번들 리소스(scripts/) — 에이전트 런타임 또는 MCP 서버의 `run_skill_hook`
 툴이 단계별로 호출한다. 표준 stdlib만 사용하는 self-contained 스크립트.
@@ -61,12 +11,12 @@ Stages:
   finalize(results)              — 유저향 최종 안내 문구 템플릿 선택
 """
 
-SKILL_NAME = 'bingo_last_month_result'
+SKILL_NAME = 'jelly_exchange_request'
 CASE_TYPE = 'normal'
-FLOW = 'query'
-REQUIRED_TOOLS = ['bingo_status_inquiry']
-ACTION_TOOLS = []    # 사용자 확인(confirmed=True) 없이는 호출 금지
-PHRASES = ['조회 성공: "{서비스} 현황이에요. {요약}"', '미참여: "아직 {서비스}에 참여하지 않으셨어요. 지금 시작해 보시겠어요?"']
+FLOW = 'action'
+REQUIRED_TOOLS = ['jelly_balance_inquiry', 'jelly_exchange_request']
+ACTION_TOOLS = ['jelly_exchange_request']    # 사용자 확인(confirmed=True) 없이는 호출 금지
+PHRASES = ['실행 확인: "{대상}을(를) {조건}(으)로 진행할까요?"', '실행 성공: "요청하신 {작업}을 완료했어요. {결과 요약}"', '실행 실패: "{작업}이 완료되지 않았어요({사유}). 자동으로 다시 시도하지 않았어요. 다시 진행할까요?"']
 
 _MONTH_PARAMS = ("year_month",)
 
@@ -137,4 +87,3 @@ def finalize(results=None, context=None):
     return {"skill": SKILL_NAME,
              "phrase_templates": PHRASES,
              "directive": "상황에 맞는 템플릿을 골라 {placeholder}를 실제 값으로 채워 응답하세요."}
-```

@@ -41,13 +41,13 @@ TOOL_CATALOG: dict[str, str] = {
     "account_interest_inquiry": "현재 잔액 또는 지정 금액 기준 예상 이자와 적용 이자율(챌린지 우대 포함)을 조회합니다",
     "account_interest_receive": "마이통장의 매일 이자받기를 실행합니다 (실행형)",
 
-    # ── 켈리/챌린지 ────────────────────────────────────────────────
-    "kelly_balance_inquiry": "현재 보유한 켈리 개수(일반/스페셜)를 조회합니다",
-    "kelly_level_inquiry": "켈리 적립 레벨·회원등급과 모니머니 전환 비율을 조회합니다",
-    "kelly_exchange_request": "보유 켈리를 모니머니로 교환합니다 (실행형)",
-    "kelly_history_inquiry": "기준월의 켈리 적립/사용 내역을 조회합니다",
-    "kelly_investment_inquiry": "누계 켈리 투자금액과 투자 현황을 조회합니다",
-    "challenge_list_inquiry": "참여 중이거나 신청 가능한 켈리 챌린지 목록과 신청 가능 기간을 조회합니다",
+    # ── 젤리/챌린지 ────────────────────────────────────────────────
+    "jelly_balance_inquiry": "현재 보유한 젤리 개수(일반/스페셜)를 조회합니다",
+    "jelly_level_inquiry": "젤리 적립 레벨·회원등급과 모니머니 전환 비율을 조회합니다",
+    "jelly_exchange_request": "보유 젤리를 모니머니로 교환합니다 (실행형)",
+    "jelly_history_inquiry": "기준월의 젤리 적립/사용 내역을 조회합니다",
+    "jelly_investment_inquiry": "누계 젤리 투자금액과 투자 현황을 조회합니다",
+    "challenge_list_inquiry": "참여 중이거나 신청 가능한 젤리 챌린지 목록과 신청 가능 기간을 조회합니다",
     "challenge_status_inquiry": "참여 중인 특정 챌린지의 달성 현황(달성일수 등)을 조회합니다",
 
     # ── 관심소식/컨텐츠 ────────────────────────────────────────────
@@ -67,7 +67,7 @@ TOOL_CATALOG: dict[str, str] = {
 
     # ── 리워드 게임/미션 ───────────────────────────────────────────
     "walking_steps_inquiry": "오늘/특정일 걸음수를 조회합니다",
-    "walking_mission_inquiry": "기준월의 걷기 미션 달성 횟수와 보상 켈리 내역을 조회합니다",
+    "walking_mission_inquiry": "기준월의 걷기 미션 달성 횟수와 보상 젤리 내역을 조회합니다",
     "bingo_status_inquiry": "빙고게임 참여 현황(달성/미달성 미션, 스티커, 전월 결과)을 조회합니다",
     "bingo_start": "빙고게임 참여를 시작합니다 (실행형, 동의 필요)",
     "bingo_mission_inquiry": "빙고 미션별 달성 기준·방법을 조회합니다",

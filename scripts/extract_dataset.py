@@ -17,6 +17,16 @@ COLUMNS = [
     "intent", "subagent", "type", "case", "utterance", "guide", "api",
 ]
 
+# 원본 시트의 표기 오류 정규화 (모니모 리워드 명칭은 '젤리'가 맞음)
+TYPO_FIXES = {"켈리": "젤리", "켈린지": "젤리 챌린지"}
+
+
+def _normalize(value):
+    if isinstance(value, str):
+        for wrong, right in TYPO_FIXES.items():
+            value = value.replace(wrong, right)
+    return value
+
 
 def extract(xlsx_path: str) -> list[dict]:
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)
@@ -28,7 +38,7 @@ def extract(xlsx_path: str) -> list[dict]:
             continue
         if r[0] and "필요 시" in str(r[0]):
             continue
-        rows.append(dict(zip(COLUMNS, r[: len(COLUMNS)])))
+        rows.append({k: _normalize(v) for k, v in zip(COLUMNS, r[: len(COLUMNS)])})
     return rows
 
 

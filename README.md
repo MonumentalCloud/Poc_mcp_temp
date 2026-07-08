@@ -88,14 +88,14 @@ Genos(또는 임의 MCP 클라이언트) 연결 정보:
    `required_tools` 순서대로 이 서버의 목업 도메인 툴 호출 (3단계)
 
 ```text
-search_skills("내 켈리 전부 모니머니로 바꿔줘")
-  → kelly_exchange_request (score 0.31)
-load_skill("kelly_exchange_request")
+search_skills("내 젤리 전부 모니머니로 바꿔줘")
+  → jelly_exchange_request (score 0.31)
+load_skill("jelly_exchange_request")
   → Instructions + hooks: scripts/hook.py
-run_skill_hook(skill=..., stage="before_tool", tool_name="kelly_exchange_request", payload={count:14})
+run_skill_hook(skill=..., stage="before_tool", tool_name="jelly_exchange_request", payload={count:14})
   → {allowed: false, reason: "실행형 툴입니다. 사용자 확인 후 context.confirmed=true..."}
 (사용자 확인 후 context={"confirmed": true}로 재호출 → allowed)
-kelly_exchange_request(count=14)
+jelly_exchange_request(count=14)
   → {"code":"0000", "data": {exchanged:14, credited_monimoney:140}}
 run_skill_hook(stage="after_tool") → {ok:true, retry:false}
 run_skill_hook(stage="finalize")   → 유저향 문구 템플릿

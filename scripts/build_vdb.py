@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT))
 from server.skill_vdb import SkillVDB  # noqa: E402
 
 SANITY_QUERIES = [
-    ("나 지금 켈리 몇 개 있어?", "kelly_balance_inquiry"),
+    ("나 지금 젤리 몇 개 있어?", "jelly_balance_inquiry"),
     ("탭탭o 이용내역 알려줘", "card_usage_inquiry"),
     ("오늘 환율 어때?", "fx_rate_inquiry"),
 ]

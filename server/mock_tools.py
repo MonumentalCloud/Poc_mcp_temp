@@ -274,33 +274,33 @@ def account_interest_receive(account_id: Optional[str] = None) -> dict:
                "next_available": str(TODAY + timedelta(days=1))})
 
 
-# ── 켈리/챌린지 ────────────────────────────────────────────────────
-def kelly_balance_inquiry() -> dict:
-    b = D.KELLY["balance"]
+# ── 젤리/챌린지 ────────────────────────────────────────────────────
+def jelly_balance_inquiry() -> dict:
+    b = D.JELLY["balance"]
     return ok({"as_of": str(TODAY), "total": b["normal"] + b["special"], "normal": b["normal"], "special": b["special"]})
 
 
-def kelly_level_inquiry() -> dict:
-    return ok(D.KELLY["level"])
+def jelly_level_inquiry() -> dict:
+    return ok(D.JELLY["level"])
 
 
-def kelly_exchange_request(count: Optional[int] = None) -> dict:
-    b = D.KELLY["balance"]
+def jelly_exchange_request(count: Optional[int] = None) -> dict:
+    b = D.JELLY["balance"]
     n = count or (b["normal"] + b["special"])
     if n > b["normal"] + b["special"]:
-        return err("K400", f"보유 켈리({b['normal'] + b['special']}개)보다 많은 수량은 교환할 수 없습니다.")
-    return ok({"exchanged": n, "credited_monimoney": n * 10, "screen": "monimo://benefit/kelly-shop"})
+        return err("K400", f"보유 젤리({b['normal'] + b['special']}개)보다 많은 수량은 교환할 수 없습니다.")
+    return ok({"exchanged": n, "credited_monimoney": n * 10, "screen": "monimo://benefit/jelly-shop"})
 
 
-def kelly_history_inquiry(year_month: Optional[str] = None) -> dict:
+def jelly_history_inquiry(year_month: Optional[str] = None) -> dict:
     ym = _norm_month(year_month)
-    items = D.KELLY["history"].get(ym, [])
+    items = D.JELLY["history"].get(ym, [])
     earned = sum(i["count"] for i in items if i["count"] > 0)
     return ok({"year_month": ym, "as_of": f"{TODAY} (D-1 기준)", "earned_total": earned, "history": items})
 
 
-def kelly_investment_inquiry() -> dict:
-    return ok({**D.KELLY["investment"], "as_of": f"{TODAY} (D-1 기준)"})
+def jelly_investment_inquiry() -> dict:
+    return ok({**D.JELLY["investment"], "as_of": f"{TODAY} (D-1 기준)"})
 
 
 def challenge_list_inquiry(status: str = "available") -> dict:

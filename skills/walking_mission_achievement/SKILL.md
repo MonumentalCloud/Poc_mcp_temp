@@ -20,7 +20,7 @@ metadata:
 
 ## Instructions
 1. 사용자 질의에서 조회 대상 서비스와 항목(현황/달성 여부/가능 목록/힌트)을 파악합니다.
-2. `walking_mission_inquiry` 툴을 호출해 기준월의 걷기 미션 달성 횟수와 보상 켈리 내역을 조회합니다.
+2. `walking_mission_inquiry` 툴을 호출해 기준월의 걷기 미션 달성 횟수와 보상 젤리 내역을 조회합니다.
 3. 조회 결과를 달성/미달성 구분 등 세부 기준과 함께 안내하고, 해당 서비스 화면 이동 배너를 제공합니다.
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
 
@@ -28,10 +28,10 @@ metadata:
 
 ## 사용 툴 명세
 호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
-- `walking_mission_inquiry(year_month: Optional[str] = None)` — 기준월의 걷기 미션 달성 횟수와 보상 켈리 내역을 조회합니다
+- `walking_mission_inquiry(year_month: Optional[str] = None)` — 기준월의 걷기 미션 달성 횟수와 보상 젤리 내역을 조회합니다
 
 ## 응답 가이드
-- 매일 ~ 전일자 기간 내 걸음수 달성일자 및 보상 켈리 수행여...
+- 매일 ~ 전일자 기간 내 걸음수 달성일자 및 보상 젤리 수행여...
 
 ## 예외 처리
 - 서비스 미참여 사용자인 경우: 참여 방법을 안내합니다.
