@@ -146,6 +146,41 @@ def run_skill_hook(skill: str, stage: str, tool_name: Optional[str] = None,
     return {"skill": skill, "stage": stage, "result": result}
 
 
+@mcp.tool
+def invoke_tool(tool_name: str, arguments: Optional[dict] = None) -> dict:
+    """도메인 목업 툴 게이트웨이 — 81개 도메인 툴을 이 하나로 호출합니다.
+    tool_name: 스킬의 required_tools에 명시된 툴 이름, arguments: 해당 툴의 인자 dict.
+    (툴별 파라미터는 describe_tools로 확인. 개별 툴을 직접 연결한 경우에는 그쪽을 사용해도 동일)"""
+    from .mock_tools import MOCK_TOOLS
+    fn = MOCK_TOOLS.get(tool_name)
+    if fn is None:
+        return {"code": "T404", "message": f"unknown tool: {tool_name}", "data": None}
+    try:
+        return fn(**(arguments or {}))
+    except TypeError as exc:  # 잘못된 인자 — 시그니처 안내
+        import inspect
+        return {"code": "T400", "message": f"invalid arguments: {exc}",
+                "data": {"signature": str(inspect.signature(fn))}}
+
+
+@mcp.tool
+def describe_tools(tool_names: Optional[list[str]] = None) -> dict:
+    """도메인 툴의 설명과 파라미터 시그니처를 조회합니다 (invoke_tool 사용 전 참조용).
+    tool_names 생략 시 전체 카탈로그를 반환합니다."""
+    import inspect
+    from .mock_tools import MOCK_TOOLS
+    from .tool_catalog import TOOL_CATALOG
+    names = tool_names or sorted(TOOL_CATALOG)
+    out = []
+    for n in names:
+        if n not in TOOL_CATALOG:
+            out.append({"name": n, "error": "unknown tool"})
+            continue
+        out.append({"name": n, "description": TOOL_CATALOG[n],
+                    "signature": str(inspect.signature(MOCK_TOOLS[n]))})
+    return {"count": len(out), "tools": out}
+
+
 @mcp.custom_route("/health", methods=["GET"])
 async def health(_: Request) -> JSONResponse:
     vdb = _get_vdb()
