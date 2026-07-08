@@ -11,10 +11,12 @@ Run (stdio — 로컬 클라이언트용):
     MCP_TRANSPORT=stdio python -m server.main
 """
 import importlib.util
+import json
 import os
+import re
 import sys
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, Union
 
 from fastmcp import FastMCP
 from starlette.requests import Request
@@ -63,6 +65,36 @@ def _get_vdb() -> SkillVDB:
             raise RuntimeError("vdb/skills_vdb.json not found — run `python scripts/build_vdb.py` first")
         _vdb = SkillVDB.load(VDB_PATH)
     return _vdb
+
+
+def _coerce_list(value) -> Optional[list[str]]:
+    """LLM 클라이언트가 리스트 대신 'a, b' 같은 문자열을 보내는 경우 보정."""
+    if value is None or isinstance(value, list):
+        return value
+    if isinstance(value, str):
+        s = value.strip()
+        if s.startswith("["):
+            try:
+                return [str(x) for x in json.loads(s)]
+            except json.JSONDecodeError:
+                pass
+        return [t for t in re.split(r"[,\s]+", s) if t]
+    return [str(value)]
+
+
+def _coerce_dict(value) -> Optional[dict]:
+    """LLM 클라이언트가 dict 대신 JSON 문자열을 보내는 경우 보정."""
+    if value is None or isinstance(value, dict):
+        return value
+    if isinstance(value, str):
+        s = value.strip()
+        if not s:
+            return None
+        parsed = json.loads(s)  # 실패 시 그대로 에러 — 지어내지 않는다
+        if not isinstance(parsed, dict):
+            raise ValueError(f"expected JSON object, got {type(parsed).__name__}")
+        return parsed
+    raise ValueError(f"expected dict, got {type(value).__name__}")
 
 
 def _get_hook_module(skill_name: str):
@@ -119,13 +151,20 @@ def list_skills(domain: Optional[str] = None, sector: Optional[str] = None) -> d
 
 @mcp.tool
 def run_skill_hook(skill: str, stage: str, tool_name: Optional[str] = None,
-                   payload: Optional[dict] = None, context: Optional[dict] = None) -> dict:
+                   payload: Optional[Union[dict, str]] = None,
+                   context: Optional[Union[dict, str]] = None) -> dict:
     """스킬 번들 훅(scripts/hook.py)을 원격 실행합니다.
     stage: on_skill_load | before_tool(tool_name+payload=툴 인자, context.confirmed로 실행형 승인)
-           | after_tool(tool_name+payload=툴 응답) | finalize(payload=수집한 결과)."""
+           | after_tool(tool_name+payload=툴 응답) | finalize(payload=수집한 결과).
+    payload/context 는 dict (JSON 문자열도 허용)."""
     module = _get_hook_module(skill)
     if module is None:
         return {"error": f"hook not found for skill: {skill}"}
+    try:
+        payload = _coerce_dict(payload)
+        context = _coerce_dict(context)
+    except (json.JSONDecodeError, ValueError) as exc:
+        return {"error": f"payload/context must be a JSON object: {exc}"}
     try:
         if stage == "on_skill_load":
             result = module.on_skill_load(context)
@@ -147,16 +186,20 @@ def run_skill_hook(skill: str, stage: str, tool_name: Optional[str] = None,
 
 
 @mcp.tool
-def invoke_tool(tool_name: str, arguments: Optional[dict] = None) -> dict:
+def invoke_tool(tool_name: str, arguments: Optional[Union[dict, str]] = None) -> dict:
     """도메인 목업 툴 게이트웨이 — 81개 도메인 툴을 이 하나로 호출합니다.
-    tool_name: 스킬의 required_tools에 명시된 툴 이름, arguments: 해당 툴의 인자 dict.
-    (툴별 파라미터는 describe_tools로 확인. 개별 툴을 직접 연결한 경우에는 그쪽을 사용해도 동일)"""
+    tool_name: 스킬의 required_tools에 명시된 툴 이름, arguments: 해당 툴의 인자
+    dict (JSON 문자열도 허용). 툴별 파라미터는 describe_tools로 확인."""
     from .mock_tools import MOCK_TOOLS
-    fn = MOCK_TOOLS.get(tool_name)
+    fn = MOCK_TOOLS.get((tool_name or "").strip())
     if fn is None:
         return {"code": "T404", "message": f"unknown tool: {tool_name}", "data": None}
     try:
-        return fn(**(arguments or {}))
+        args = _coerce_dict(arguments)
+    except (json.JSONDecodeError, ValueError) as exc:
+        return {"code": "T400", "message": f"arguments must be a JSON object: {exc}", "data": None}
+    try:
+        return fn(**(args or {}))
     except TypeError as exc:  # 잘못된 인자 — 시그니처 안내
         import inspect
         return {"code": "T400", "message": f"invalid arguments: {exc}",
@@ -164,13 +207,13 @@ def invoke_tool(tool_name: str, arguments: Optional[dict] = None) -> dict:
 
 
 @mcp.tool
-def describe_tools(tool_names: Optional[list[str]] = None) -> dict:
+def describe_tools(tool_names: Optional[Union[list[str], str]] = None) -> dict:
     """도메인 툴의 설명과 파라미터 명세를 조회합니다 (invoke_tool 사용 전 참조용).
-    tool_names 생략 시 전체 카탈로그를 반환합니다."""
+    tool_names: 툴 이름 리스트 (쉼표 구분 문자열도 허용). 생략 시 전체 카탈로그."""
     import inspect
     from .mock_tools import MOCK_TOOLS
     from .tool_catalog import TOOL_CATALOG
-    names = tool_names or sorted(TOOL_CATALOG)
+    names = _coerce_list(tool_names) or sorted(TOOL_CATALOG)
     out = []
     for n in names:
         if n not in TOOL_CATALOG:
