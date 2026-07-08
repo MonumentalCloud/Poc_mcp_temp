@@ -11,6 +11,7 @@ seq: '263'
 required_tools:
 - saju_profile_register
 - fortune_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -26,6 +27,8 @@ version: 1.0.0
 5. 요청을 직접 수행할 수 없는 이유를 한 문장으로 정중히 안내합니다.
 6. 수행 가능한 대안(관련 조회, 화면 이동, 객관적 정보 제공)을 제시합니다.
 7. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 다시 확인된 사주정보 기반 오늘의 운세 정보 안내

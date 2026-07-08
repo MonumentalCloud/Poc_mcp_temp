@@ -11,6 +11,7 @@ seq: 095
 required_tools:
 - account_list_inquiry
 - account_interest_receive
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -25,6 +26,8 @@ version: 1.0.0
 4. 사용자가 동의하면 `account_interest_receive` 툴을 호출해 마이통장의 매일 이자받기를 실행합니다.
 5. 실행 결과(받은 이자 금액)를 안내합니다.
 6. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 이자 받기가 가능한 상품은 KB국민은행 파킹통장 / 삼성증권 CMA

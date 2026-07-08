@@ -1,10 +1,13 @@
 # Monimo PoC — FastMCP Mock Server + Skill VDB
 
 모니모 AI Agent 골든데이터셋(`2) DATA` 시트, 189행)을 기반으로 한 PoC.
+에이전트(planner)는 외부(Genos)에 있고, 이 저장소는 **HTTP MCP 서버**만 제공한다.
 
-- **FastMCP 서버**: 도메인 목업 툴 81개 + 스킬 VDB 검색 툴 3개
+- **FastMCP 서버 (HTTP)**: 도메인 목업 툴 81개 + 스킬 VDB 툴 4개
+  (`search_skills` / `load_skill` / `list_skills` / `run_skill_hook` — 스킬 검색 자체가 MCP 툴)
 - **스킬 189개**: 데이터셋 1행 = 스킬 1개, [스킬 표준 가이드] 형식의 SKILL.md
   (frontmatter `name`/`description` + body `Instructions`/`응답 가이드`/`예외 처리`/`유저향 최종 안내 문구`)
+  + 스킬별 번들 훅 스크립트 `scripts/hook.py`
 - **스킬 VDB**: 표준 런타임의 "name+description preload + 매칭"을 벡터 검색으로 대체
   — description은 임베딩(트리거), body는 payload(적중 시 반환, 임베딩 안 함)
 
@@ -12,7 +15,9 @@
 
 ```
 data/dataset.json          # xlsx '2) DATA' 시트에서 추출한 189행
-skills/<name>/SKILL.md     # 생성된 스킬 189개
+skills/<name>/
+  SKILL.md                 # 생성된 스킬 189개
+  scripts/hook.py          # 스킬별 훅 (before_tool/after_tool/finalize 등)
 vdb/skills_vdb.json        # 빌드된 VDB 인덱스 (임베딩 + payload)
 server/
   main.py                  # FastMCP 서버 엔트리포인트
@@ -37,31 +42,74 @@ pip install -r requirements.txt
 python scripts/generate_skills.py
 python scripts/build_vdb.py
 
-# MCP 서버 (stdio)
+# HTTP MCP 서버 (기본) — 엔드포인트 http://0.0.0.0:8000/mcp, 헬스체크 /health
 python -m server.main
+
+# stdio가 필요하면
+MCP_TRANSPORT=stdio python -m server.main
 ```
 
-MCP 클라이언트 등록 예 (Claude Code):
+## 공개 엔드포인트 호스팅 (Genos 연동)
 
-```bash
-claude mcp add monimo-poc -- python -m server.main
+서버는 streamable HTTP MCP를 노출한다 — 어디에 올리든 `https://<host>/mcp`가
+Genos 에이전트가 연결할 엔드포인트다. `PORT` 환경변수를 따르므로 대부분의
+PaaS에 그대로 올라간다.
+
+- **FastMCP Cloud (가장 빠름)**: [fastmcp.cloud]에서 이 GitHub 저장소를 연결하고
+  entrypoint를 `server/main.py:mcp`로 지정하면 `https://<project>.fastmcp.app/mcp`
+  공개 URL이 발급된다.
+- **컨테이너 (Cloud Run / Render / Fly 등)**: 포함된 `Dockerfile` 사용.
+  ```bash
+  docker build -t monimo-poc-mcp . && docker run -p 8000:8000 monimo-poc-mcp
+  # 예: Google Cloud Run
+  gcloud run deploy monimo-poc-mcp --source . --allow-unauthenticated --port 8000
+  ```
+- **임시 데모**: 로컬 실행 후 `ngrok http 8000` 등 터널로 노출.
+
+Genos(또는 임의 MCP 클라이언트) 연결 정보:
+
+```json
+{ "transport": "streamable-http", "url": "https://<host>/mcp" }
 ```
+
+> PoC 서버에는 인증이 없다. 외부에 오래 열어둘 경우 FastMCP auth 또는
+> 프록시단 토큰을 붙일 것.
 
 ## 에이전트 사용 흐름 (progressive disclosure)
+
+스킬 검색은 그 자체가 MCP 툴이다 — Genos 에이전트는 아래 순서로 호출한다.
 
 1. `search_skills(query, top_k, domain?, category?, case_type?, required_tool?)`
    — 사용자 발화로 VDB 시맨틱 검색. **name/description/score만** 반환 (1단계)
 2. `load_skill(name)` — 적중 스킬의 body(payload)를 로드해 실행 매뉴얼로 사용 (2단계)
-3. body의 `required_tools` 순서대로 이 서버의 목업 도메인 툴 호출 (3단계)
+3. `run_skill_hook(skill, stage, ...)` — 훅 실행(아래 참조) 후, body의
+   `required_tools` 순서대로 이 서버의 목업 도메인 툴 호출 (3단계)
 
 ```text
-search_skills("탭탭o 이용내역 알려줘")
-  → card_usage_inquiry (score 0.59)
-load_skill("card_usage_inquiry")
-  → Instructions: card_list_inquiry → card_usage_inquiry → 최근 2주 내역 안내 ...
-card_usage_inquiry(card_name="탭탭오")
-  → {"code":"0000", "data": {...최근 2주 이용내역...}}
+search_skills("내 켈리 전부 모니머니로 바꿔줘")
+  → kelly_exchange_request (score 0.31)
+load_skill("kelly_exchange_request")
+  → Instructions + hooks: scripts/hook.py
+run_skill_hook(skill=..., stage="before_tool", tool_name="kelly_exchange_request", payload={count:14})
+  → {allowed: false, reason: "실행형 툴입니다. 사용자 확인 후 context.confirmed=true..."}
+(사용자 확인 후 context={"confirmed": true}로 재호출 → allowed)
+kelly_exchange_request(count=14)
+  → {"code":"0000", "data": {exchanged:14, credited_monimoney:140}}
+run_skill_hook(stage="after_tool") → {ok:true, retry:false}
+run_skill_hook(stage="finalize")   → 유저향 문구 템플릿
 ```
+
+## 스킬 훅 (scripts/hook.py)
+
+각 스킬 폴더에 self-contained 훅 스크립트가 번들된다(frontmatter `hooks: scripts/hook.py`).
+로컬 런타임은 직접 import해서, 원격 에이전트(Genos)는 `run_skill_hook` 툴로 실행한다.
+
+| stage | 시점 | 역할 |
+|---|---|---|
+| `on_skill_load` | 스킬 로드 직후 | 가드레일/실행형 주의 등 지시사항 반환 |
+| `before_tool` | 툴 호출 전 | required_tools 검증, `year_month` 등 파라미터 정규화, 실행형 툴은 `context.confirmed=true` 없으면 차단 |
+| `after_tool` | 툴 응답 후 | envelope(code) 검증, 실패 시 재시도 금지 지시 반환 |
+| `finalize` | 응답 직전 | 유저향 최종 안내 문구 템플릿 선택 |
 
 ## 스킬 형식
 
@@ -91,3 +139,4 @@ card_usage_inquiry(card_name="탭탭오")
 실행형 툴은 상태를 바꾸지 않고 그럴듯한 실행 결과만 돌려준다.
 
 [스킬 표준 가이드]: https://code.claude.com/docs/en/skills
+[fastmcp.cloud]: https://fastmcp.cloud

@@ -10,6 +10,7 @@ seq: '143'
 required_tools:
 - monischool_quiz_inquiry
 - monischool_answer_submit
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -24,6 +25,8 @@ version: 1.0.0
 4. 사용자가 동의하면 `monischool_answer_submit` 툴을 호출해 모니스쿨 문제의 답안을 제출합니다.
 5. 실행 결과를 안내하고, 관련 화면 이동 배너가 있으면 함께 제공합니다.
 6. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 지정한 정답으로 화면에 입력

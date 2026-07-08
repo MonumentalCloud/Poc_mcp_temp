@@ -133,6 +133,7 @@ class SkillVDB:
                 "seq": meta.get("seq"),
                 "dataset_id": meta.get("dataset_id"),
                 "required_tools": meta.get("required_tools", []),
+                "hooks": meta.get("hooks"),
                 "version": meta.get("version"),
                 "payload": body,  # 임베딩하지 않음 — 적중 시 반환
             })

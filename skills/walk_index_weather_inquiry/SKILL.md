@@ -9,6 +9,7 @@ dataset_id: NF_MONIMO_151
 seq: '151'
 required_tools:
 - weather_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -21,6 +22,8 @@ version: 1.0.0
 2. `weather_inquiry` 툴을 호출해 설정 지역 또는 지정 지역의 날씨·기온·대기수준·산책지수를 조회합니다.
 3. 날씨/최고·최저 기온/대기 수준/산책지수를 안내합니다. 예: "최고 기온은 ~도이며, 최저 기온은 ~도입니다."
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 현재 일 기준 산책지수의 날씨/(최고 기온은 ~도 이며, 최저 기온은 ~ 도입니다.

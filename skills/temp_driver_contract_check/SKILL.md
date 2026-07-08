@@ -9,6 +9,7 @@ dataset_id: F_FIRE_202
 seq: '202'
 required_tools:
 - insurance_contract_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -21,6 +22,8 @@ version: 1.0.0
 2. `insurance_contract_inquiry` 툴을 호출해 사용자가 보유한 보험 계약 목록을 조회합니다.
 3. 조회된 정보가 사용자가 찾는 건이 맞는지 확인하며 안내합니다.
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 기존 가입계약 목록 중 해당 정보가 맞는지 확인

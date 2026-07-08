@@ -9,6 +9,7 @@ dataset_id: F_MONIMO_084
 seq: 084
 required_tools:
 - spending_category_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -21,6 +22,8 @@ version: 1.0.0
 2. `spending_category_inquiry` 툴을 호출해 기준월/주차의 업종(카테고리)별 소비금액과 순위를 조회합니다.
 3. 조회 결과에서 질의에 해당하는 값(총액/최다 카테고리/카드별 금액 등)을 추출해 안내하고, 비교 정보(전월 대비 등)가 있으면 함께 제공합니다.
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 이번달 외식업종 소비금액 총합

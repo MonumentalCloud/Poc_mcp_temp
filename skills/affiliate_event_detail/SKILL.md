@@ -10,6 +10,7 @@ seq: '010'
 required_tools:
 - event_list_inquiry
 - event_detail_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -24,6 +25,8 @@ version: 1.0.0
 4. 요약 정보와 사용자가 묻는 항목(발표일/혜택 조건 등)을 안내합니다.
 5. 세부 기준은 이벤트 상세화면에서 확인하도록 배너를 제공합니다.
 6. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 연금저축보험 관련 이벤트 리스트 제공(이벤트 요약정보)

@@ -10,6 +10,7 @@ dataset_id: F_FIRE_203
 seq: '203'
 required_tools:
 - temp_driver_apply
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -23,6 +24,8 @@ version: 1.0.0
 3. 사용자가 동의하면 `temp_driver_apply` 툴을 호출해 임시운전자 특약을 지정 기간으로 가입합니다.
 4. 실행 결과를 안내하고, 관련 화면 이동 배너가 있으면 함께 제공합니다.
 5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 정확한 가입기간 확인

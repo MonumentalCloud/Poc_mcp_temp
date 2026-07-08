@@ -9,6 +9,7 @@ dataset_id: F_STCK_222
 seq: '222'
 required_tools:
 - pb_consult_request
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -22,6 +23,8 @@ version: 1.0.0
 3. 사용자가 동의하면 `pb_consult_request` 툴을 호출해 S.Lounge 전문PB 상담 대상 여부 확인 및 상담을 신청합니다.
 4. 대상 고객이면 진입점/이수기간을 안내하고 신청을 진행합니다.
 5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 질의한 사용자가 s.lounge 대상 고객인지 확인하여 안내

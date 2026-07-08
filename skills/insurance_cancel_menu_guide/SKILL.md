@@ -9,6 +9,7 @@ dataset_id: F_INFO_027
 seq: '027'
 required_tools:
 - menu_search
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -22,6 +23,8 @@ version: 1.0.0
 3. 조회된 경로를 단계별로 안내하고, 해당 메뉴에서 가능한 업무를 함께 설명합니다.
 4. 응답에 딥링크가 포함된 경우 바로가기 배너/버튼으로 제공합니다.
 5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 특정 상품의 계약 해지 가능한 메뉴로 안내

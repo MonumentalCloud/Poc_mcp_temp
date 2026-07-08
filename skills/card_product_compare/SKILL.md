@@ -10,6 +10,7 @@ seq: '040'
 required_tools:
 - product_search
 - product_compare
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -23,6 +24,8 @@ version: 1.0.0
 3. `product_compare` 툴을 호출해 복수 상품의 특징을 비교표 형태로 조회합니다.
 4. 카드별 특징과 차이를 비교표로 정리해 안내하되, 어느 쪽이 '더 좋다'는 단정은 하지 않고 사용 패턴별 유불리를 설명합니다.
 5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 각 카드의 특징 안내

@@ -9,6 +9,7 @@ dataset_id: F_LIFE_169
 seq: '169'
 required_tools:
 - insurance_loan_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -22,6 +23,8 @@ version: 1.0.0
 3. 대출 건별 잔액·금리·이자 상환일을 안내합니다.
 4. 대출금 상환·이자 납입 진행을 원하는지 확인하고, 원하면 해당 화면으로 이동 배너를 제공합니다.
 5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 보험계약대출 잔액 안내

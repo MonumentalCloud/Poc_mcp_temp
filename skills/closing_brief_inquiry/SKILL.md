@@ -9,6 +9,7 @@ dataset_id: NF_MONIMO_150
 seq: '150'
 required_tools:
 - daily_news_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -21,6 +22,8 @@ version: 1.0.0
 2. `daily_news_inquiry` 툴을 호출해 오늘의 소식(뉴스레터/마감브리핑)을 조회합니다.
 3. 첫 문단을 기준으로 핵심 내용을 요약 안내합니다. 마감브리핑은 나스닥/S&P 등 지수별 등락률을 포함합니다. HTML 태그는 제거하고 텍스트만 사용합니다.
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - (모니브리핑) 종목별 : 다스닥 / S&P 수치가 각각 몇 % 상승/하락

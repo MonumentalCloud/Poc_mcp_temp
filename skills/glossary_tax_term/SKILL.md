@@ -9,6 +9,7 @@ dataset_id: F_FIN_059
 seq: 059
 required_tools:
 - glossary_search
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -21,6 +22,8 @@ version: 1.0.0
 2. `glossary_search` 툴을 호출해 금융 용어 사전에서 용어의 정의·활용 예시를 조회합니다.
 3. 정의 → 왜 중요한지/어디에 쓰이는지 → 생활 예시 순서로 쉽게 풀어 설명합니다. 비교 질문이면 차이점을 표 없이 간결히 대비합니다.
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 두 용어의 정의 각각 설명

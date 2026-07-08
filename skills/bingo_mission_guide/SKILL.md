@@ -9,6 +9,7 @@ dataset_id: NF_MONIMO_137
 seq: '137'
 required_tools:
 - bingo_mission_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -21,6 +22,8 @@ version: 1.0.0
 2. `bingo_mission_inquiry` 툴을 호출해 빙고 미션별 달성 기준·방법을 조회합니다.
 3. 조회 결과를 달성/미달성 구분 등 세부 기준과 함께 안내하고, 해당 서비스 화면 이동 배너를 제공합니다.
 4. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 매월 빙고 하위미션 8줄에 대한 달성 방법 안내 (혜택>빙고>빙고 조건 모두 보기 내용 안내)

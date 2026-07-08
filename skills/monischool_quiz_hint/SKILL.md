@@ -10,6 +10,7 @@ seq: '142'
 required_tools:
 - monischool_quiz_inquiry
 - monischool_hint_inquiry
+hooks: scripts/hook.py
 version: 1.0.0
 ---
 
@@ -23,6 +24,8 @@ version: 1.0.0
 3. `monischool_hint_inquiry` 툴을 호출해 특정 교시 문제의 힌트를 조회합니다.
 4. 조회 결과를 달성/미달성 구분 등 세부 기준과 함께 안내하고, 해당 서비스 화면 이동 배너를 제공합니다.
 5. 아래 '응답 가이드'와 '유저향 최종 안내 문구'에 맞춰 결과를 안내합니다.
+
+> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
 ## 응답 가이드
 - 해당 문제의 힌트 내용 제공 및 힌트 화면 랜딩 제공
