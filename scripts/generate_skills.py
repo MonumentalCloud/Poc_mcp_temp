@@ -648,7 +648,7 @@ def build_description(row: dict, cfg_desc: str) -> str:
     return desc
 
 
-def build_skill_md(row: dict, entry: dict) -> str:
+def build_skill_md(row: dict, entry: dict, hook_source: str) -> str:
     cfg = GROUPS[entry["group"]]
     tools = entry["tools"]
     title = (row["intent"] or entry["name"]).strip()
@@ -682,9 +682,9 @@ def build_skill_md(row: dict, entry: dict) -> str:
     parts.append("## Instructions")
     parts.extend(f"{i}. {s}" for i, s in enumerate(steps, 1))
     parts.append("")
-    parts.append("> 훅: 이 스킬은 `scripts/hook.py`를 제공합니다. 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), "
-                 "호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. "
-                 "MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.")
+    parts.append("> 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). "
+                 "툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), "
+                 "응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.")
     parts.append("")
 
     if guide_bullets:
@@ -698,6 +698,15 @@ def build_skill_md(row: dict, entry: dict) -> str:
 
     parts.append("## 유저향 최종 안내 문구")
     parts.extend(phrases)
+    parts.append("")
+
+    parts.append("## Hook (scripts/hook.py)")
+    parts.append("이 스킬의 훅 스크립트 전문. MCP 서버의 `run_skill_hook(skill, stage, ...)` 툴이 "
+                 "이 코드를 실행한다 — 에이전트는 코드를 직접 실행하지 말고 툴을 호출한다.")
+    parts.append("")
+    parts.append("```python")
+    parts.append(hook_source.rstrip())
+    parts.append("```")
     parts.append("")
     return "\n".join(parts)
 
@@ -714,12 +723,13 @@ def main() -> None:
         unknown = [t for t in entry["tools"] if t not in TOOL_CATALOG]
         if unknown:
             raise SystemExit(f"seq {row['seq']}: unknown tools {unknown}")
+        hook_source = build_hook_py(row, entry)
         out = skills_dir / entry["name"] / "SKILL.md"
         out.parent.mkdir(parents=True)
-        out.write_text(build_skill_md(row, entry), encoding="utf-8")
+        out.write_text(build_skill_md(row, entry, hook_source), encoding="utf-8")
         hook = skills_dir / entry["name"] / "scripts" / "hook.py"
         hook.parent.mkdir(parents=True)
-        hook.write_text(build_hook_py(row, entry), encoding="utf-8")
+        hook.write_text(hook_source, encoding="utf-8")
 
     print(f"generated {len(data)} skills (+hook.py each) -> {skills_dir}")
 
