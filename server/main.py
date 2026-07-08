@@ -12,6 +12,7 @@ Run (stdio — 로컬 클라이언트용):
 """
 import importlib.util
 import os
+import sys
 from pathlib import Path
 from typing import Any, Optional
 
@@ -19,10 +20,14 @@ from fastmcp import FastMCP
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
-from .mock_tools import register_mock_tools
-from .skill_vdb import SkillVDB
-
 ROOT = Path(__file__).resolve().parent.parent
+
+# FastMCP Cloud/CLI는 이 파일을 단독 모듈로 로드하므로(패키지 컨텍스트 없음)
+# 상대 임포트 대신 절대 임포트를 쓴다.
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from server.mock_tools import register_mock_tools  # noqa: E402
+from server.skill_vdb import SkillVDB  # noqa: E402
 VDB_PATH = ROOT / "vdb" / "skills_vdb.json"
 SKILLS_DIR = ROOT / "skills"
 
