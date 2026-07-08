@@ -2,16 +2,17 @@
 name: pension_consult_guide
 description: '연금을 잘 모르는 사용자가 무엇에 가입해야 할지 전반적인 상담을 원할 때 사용합니다. 가입 목적 추가 질의 후 적절한 상품 안내에 적합합니다. 예: "연금 가입하고싶은데
   뭘가입해야해?"'
-domain: finance
-category: product_info
-target: 상품(연금)
-case_type: normal
-dataset_id: F_INFO_031
-seq: '031'
-required_tools:
-- product_recommend
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(연금)
+  seq: '031'
+  dataset_id: F_INFO_031
+  required_tools:
+  - product_recommend
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 연금가입 상담

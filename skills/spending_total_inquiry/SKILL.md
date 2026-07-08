@@ -1,16 +1,17 @@
 ---
 name: spending_total_inquiry
 description: '사용자가 이번 달 등 기준월의 총 소비금액을 물을 때 사용합니다. 카테고리별 금액과 전월 대비 비교 안내에 적합합니다. 예: "이번달 나 얼마쓰고있는지 알려줘"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_077
-seq: '077'
-required_tools:
-- spending_summary_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: '077'
+  dataset_id: F_MONIMO_077
+  required_tools:
+  - spending_summary_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 소비 금액 조회 (총 소비금액)

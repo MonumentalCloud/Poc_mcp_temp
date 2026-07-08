@@ -1,16 +1,17 @@
 ---
 name: insurance_loan_inquiry
 description: '사용자가 삼성생명에서 받은 대출 내역·잔액·금리·상환 진행 여부를 확인하려 할 때 사용합니다. 예: "내가 대출한 상품들 알려줘"'
-domain: finance
-category: life
-target: 융자대출 거래
-case_type: normal
-dataset_id: F_LIFE_168
-seq: '168'
-required_tools:
-- insurance_loan_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: life
+  sector: finance
+  case_type: normal
+  target: 융자대출 거래
+  seq: '168'
+  dataset_id: F_LIFE_168
+  required_tools:
+  - insurance_loan_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 삼성생명에 대출한 내역 및 상환금액에 대한 확인을 원하는 경우

@@ -2,16 +2,17 @@
 name: insurance_claim_status_inquiry
 description: '사용자가 진행 중인 보험금 청구가 어떻게 되어 가는지 물을 때 사용합니다. 가장 최근 청구 건의 진행현황 안내에 적합합니다. 예: "내 보험금 청구 어떻게 되가고
   있어?"'
-domain: finance
-category: samsung_financial
-target: 보험금 청구 현황
-case_type: normal
-dataset_id: F_SFN_161
-seq: '161'
-required_tools:
-- insurance_claim_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: samsung_financial
+  sector: finance
+  case_type: normal
+  target: 보험금 청구 현황
+  seq: '161'
+  dataset_id: F_SFN_161
+  required_tools:
+  - insurance_claim_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험금 청구내역 조회

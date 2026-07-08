@@ -1,17 +1,18 @@
 ---
 name: interest_content_recommend
 description: '사용자가 본인이 설정한 관심분야 기준의 오늘의 관심소식 추천을 원할 때 사용합니다. 예: "오늘 관심소식 추천해줘"'
-domain: non_finance
-category: monimo
-target: 관심소식
-case_type: normal
-dataset_id: NF_MONIMO_114
-seq: '114'
-required_tools:
-- interest_topic_inquiry
-- content_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 관심소식
+  seq: '114'
+  dataset_id: NF_MONIMO_114
+  required_tools:
+  - interest_topic_inquiry
+  - content_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # (사용자 지정) 관심분야 기준 목록 조회

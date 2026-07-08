@@ -2,16 +2,17 @@
 name: loan_first_time_consult
 description: '대출이 처음인 사용자가 어떤 대출을 받아야 할지 상담을 원할 때 사용합니다. 대출 목적 파악 후 맞춤 상품 안내에 적합합니다. 예: "대출을 처음 받는데 어떤
   대출을 받아야하는지 알려"'
-domain: finance
-category: product_info
-target: 상품(대출)
-case_type: normal
-dataset_id: F_INFO_036
-seq: '036'
-required_tools:
-- product_recommend
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(대출)
+  seq: '036'
+  dataset_id: F_INFO_036
+  required_tools:
+  - product_recommend
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 대출상품 상담

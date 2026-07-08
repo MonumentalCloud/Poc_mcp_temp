@@ -1,17 +1,18 @@
 ---
 name: account_interest_simulation
 description: '사용자가 특정 금액을 넣어두면 이자를 얼마나 받는지 시뮬레이션을 원할 때 사용합니다. 예: "내가 통장에 200만원 넣어두면 연말에 얼마 이자나와?"'
-domain: finance
-category: monimo
-target: 마이통장
-case_type: normal
-dataset_id: F_MONIMO_097
-seq: 097
-required_tools:
-- account_list_inquiry
-- account_interest_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 마이통장
+  seq: 097
+  dataset_id: F_MONIMO_097
+  required_tools:
+  - account_list_inquiry
+  - account_interest_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 질의한 금액 기준 받을 수 있는 이자 확인

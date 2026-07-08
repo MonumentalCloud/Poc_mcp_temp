@@ -2,16 +2,17 @@
 name: event_menu_path_guide
 description: '사용자가 특정 이벤트 페이지를 어디서 볼 수 있는지 경로를 물을 때 사용합니다. 키워드에 맞는 이벤트 리스트와 확인 경로 안내에 적합합니다. 예: "어버랜 생명에서
   하는 연금이벤트 어디가면 볼수있어"'
-domain: non_finance
-category: event
-target: 혜택 > 이벤트
-case_type: normal
-seq: '012'
-required_tools:
-- event_list_inquiry
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: event
+  sector: non_finance
+  case_type: normal
+  target: 혜택 > 이벤트
+  seq: '012'
+  required_tools:
+  - event_list_inquiry
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이벤트 메뉴/경로 질의

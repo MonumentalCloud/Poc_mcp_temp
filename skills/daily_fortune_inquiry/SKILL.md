@@ -1,17 +1,18 @@
 ---
 name: daily_fortune_inquiry
 description: '사용자가 생년월일과 함께, 또는 사주정보 입력 완료 상태에서 오늘의 운세를 물을 때 사용합니다. 예: "91년 5월 1일생의 오늘의 운세 알려줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_255
-seq: '255'
-required_tools:
-- saju_profile_inquiry
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '255'
+  dataset_id: NF_CASUAL_255
+  required_tools:
+  - saju_profile_inquiry
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 운세 질의

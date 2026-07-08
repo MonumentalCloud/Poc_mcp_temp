@@ -1,15 +1,16 @@
 ---
 name: unsupported_external_link
 description: 사용자 질의에 외부 링크가 삽입된 경우 사용합니다. 외부 링크 내용은 처리하지 않음을 안내합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_276
-seq: '276'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '276'
+  dataset_id: NF_UNSUPP_276
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 외부 링크가 삽입된 질의

@@ -1,17 +1,18 @@
 ---
 name: contract_withdrawal_request
 description: '사용자가 최근 가입한 보험 계약의 청약철회(취소)를 원할 때 사용합니다. 철회 가능 계약 확인 후 프로세스 진행에 적합합니다. 예: "최근에 가입한 팩보험 취소하고싶어."'
-domain: finance
-category: life
-target: 청약철회
-case_type: normal
-dataset_id: F_LIFE_167
-seq: '167'
-required_tools:
-- insurance_contract_inquiry
-- contract_withdrawal_request
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: life
+  sector: finance
+  case_type: normal
+  target: 청약철회
+  seq: '167'
+  dataset_id: F_LIFE_167
+  required_tools:
+  - insurance_contract_inquiry
+  - contract_withdrawal_request
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 신규로 가입한 상품의 계약을 취소하고 싶은 경우

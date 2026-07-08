@@ -2,16 +2,17 @@
 name: asset_menu_guide
 description: '사용자가 통합자산(마이데이터) 조회 화면의 위치를 물을 때 사용합니다. 자산 메뉴 경로 안내와 마이데이터 연결 필요 여부 안내가 필요한 경우에 적합합니다. 예:
   "내 자산은 어디서 봐?"'
-domain: finance
-category: search
-target: 메뉴
-case_type: normal
-dataset_id: F_SEARCH_003
-seq: '003'
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 메뉴
+  seq: '003'
+  dataset_id: F_SEARCH_003
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 자산조회 메뉴 안내

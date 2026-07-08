@@ -1,17 +1,18 @@
 ---
 name: card_immediate_payment_by_transaction
 description: '사용자가 특정 이용 건을 골라 건별 즉시결제하려 할 때 사용합니다. 금액결제/건별결제 방식 비교 후 실행에 적합합니다. 예: "어제 결제한 내역 지금 바로 결제하고싶어"'
-domain: finance
-category: card
-target: 이용내역 조회 &
-case_type: normal
-dataset_id: F_CARD_211
-seq: '211'
-required_tools:
-- card_usage_inquiry
-- card_immediate_payment
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: card
+  sector: finance
+  case_type: normal
+  target: 이용내역 조회 &
+  seq: '211'
+  dataset_id: F_CARD_211
+  required_tools:
+  - card_usage_inquiry
+  - card_immediate_payment
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 건별로 즉시결제 요청하는 경우

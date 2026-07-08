@@ -1,16 +1,17 @@
 ---
 name: monischool_guide
 description: '사용자가 모니스쿨이 어떤 서비스인지 물을 때 사용합니다. 이벤트 유형·참여 방법·혜택 안내에 적합합니다. 예: "모니스쿨 어떤 서비스인지 알려줘"'
-domain: non_finance
-category: monimo
-target: 모니스쿨
-case_type: normal
-dataset_id: NF_MONIMO_139
-seq: '139'
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 모니스쿨
+  seq: '139'
+  dataset_id: NF_MONIMO_139
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이용방법/정책 질의

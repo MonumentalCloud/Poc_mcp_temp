@@ -2,16 +2,17 @@
 name: temp_driver_apply_period
 description: '사용자가 임시운전자 특약 가입 기간을 직접 지정해 가입하려 할 때 사용합니다. 가입 기간·일수 확인 후 가입 진행에 적합합니다. 예: "26년 11월부터 12월까지
   가입할래"'
-domain: finance
-category: fire
-target: 임시운전자
-case_type: normal
-dataset_id: F_FIRE_203
-seq: '203'
-required_tools:
-- temp_driver_apply
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: fire
+  sector: finance
+  case_type: normal
+  target: 임시운전자
+  seq: '203'
+  dataset_id: F_FIRE_203
+  required_tools:
+  - temp_driver_apply
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 임시운전자 특약 가입 기간 설정

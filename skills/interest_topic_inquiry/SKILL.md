@@ -1,16 +1,17 @@
 ---
 name: interest_topic_inquiry
 description: '사용자가 본인이 설정한 관심분야 목록을 확인하려 할 때 사용합니다. 예: "내가 설정한 관심분야 보여줘"'
-domain: non_finance
-category: monimo
-target: 관심소식
-case_type: normal
-dataset_id: NF_MONIMO_117
-seq: '117'
-required_tools:
-- interest_topic_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 관심소식
+  seq: '117'
+  dataset_id: NF_MONIMO_117
+  required_tools:
+  - interest_topic_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # (사용자 지정) 관심분야 목록 안내

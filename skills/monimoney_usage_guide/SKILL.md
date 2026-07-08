@@ -1,16 +1,17 @@
 ---
 name: monimoney_usage_guide
 description: '사용자가 모니머니가 무엇이고 어떻게 사용하는지 물을 때 사용합니다. 충전/송금/결제/투자/보험료납입 활용 안내에 적합합니다. 예: "모니머니는 어떻게 사용해?"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_120
-seq: '120'
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '120'
+  dataset_id: F_MONIMO_120
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 관련 일반적 질문

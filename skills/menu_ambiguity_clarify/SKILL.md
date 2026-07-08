@@ -2,16 +2,17 @@
 name: menu_ambiguity_clarify
 description: '사용자가 ''포인트 쓰는 곳''처럼 여러 메뉴에 해당할 수 있는 모호한 검색어로 질의할 때 사용합니다. 포인트 종류(갤러/모니머니/카드포인트 등) 확인 등 의도를
   먼저 좁혀야 하는 경우에 적합합니다. 예: "포인트 쓰는곳 알려줘"'
-domain: finance
-category: search
-target: 메뉴
-case_type: normal
-dataset_id: F_SEARCH_002
-seq: '002'
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 메뉴
+  seq: '002'
+  dataset_id: F_SEARCH_002
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 검색어 모호성 확인

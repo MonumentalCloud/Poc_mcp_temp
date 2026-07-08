@@ -1,17 +1,18 @@
 ---
 name: life_insurance_product_search
 description: '사용자가 삼성생명의 특정 보험상품(예: 핵심건강보험)을 지목해 물을 때 사용합니다. 예: "삼성생명 핵 건강보험이 뭐야?"'
-domain: finance
-category: product_info
-target: 상품(보험)
-case_type: normal
-dataset_id: F_INFO_024
-seq: '024'
-required_tools:
-- product_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(보험)
+  seq: '024'
+  dataset_id: F_INFO_024
+  required_tools:
+  - product_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 생명보험상품 탐색

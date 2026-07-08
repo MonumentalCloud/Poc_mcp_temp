@@ -1,16 +1,17 @@
 ---
 name: monimoney_history_inquiry
 description: '사용자가 특정 월의 모니머니 입출금·적립·차감 내역을 물을 때 사용합니다. 예: "26년 4월 모니머니 적립 내역을 알려줘"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_123
-seq: '123'
-required_tools:
-- monimoney_history_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '123'
+  dataset_id: F_MONIMO_123
+  required_tools:
+  - monimoney_history_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 특정 이용내역 목록조회

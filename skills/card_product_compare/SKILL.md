@@ -1,17 +1,18 @@
 ---
 name: card_product_compare
 description: '사용자가 두 개 이상의 카드를 비교하려 할 때 사용합니다. 카드별 특징과 비교표 제공에 적합합니다. 예: "탭탭오 탭탭아이스 뭐가 더 좋아?"'
-domain: finance
-category: product_info
-target: 상품(카드)
-case_type: normal
-dataset_id: F_INFO_040
-seq: '040'
-required_tools:
-- product_search
-- product_compare
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(카드)
+  seq: '040'
+  dataset_id: F_INFO_040
+  required_tools:
+  - product_search
+  - product_compare
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상품 비교

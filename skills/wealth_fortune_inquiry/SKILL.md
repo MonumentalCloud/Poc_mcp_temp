@@ -1,17 +1,18 @@
 ---
 name: wealth_fortune_inquiry
 description: '사용자가 올해 재물운 등 사주 기반 세부 운세를 물을 때 사용합니다. 예: "26년 재물운 어떤지알려줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_261
-seq: '261'
-required_tools:
-- saju_profile_inquiry
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '261'
+  dataset_id: NF_CASUAL_261
+  required_tools:
+  - saju_profile_inquiry
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 사주(신토정비결) 질의

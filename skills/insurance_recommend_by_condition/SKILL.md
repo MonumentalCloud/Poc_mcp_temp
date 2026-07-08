@@ -2,17 +2,18 @@
 name: insurance_recommend_by_condition
 description: '사용자가 질병·사고 등 본인 상황을 이야기하며 보장받을 수 있는 보험을 찾을 때 사용합니다. 예: "나 요즘 위가 안좋아서 보험에 미리 가입하려고 하는데 무슨보험에
   가입해야해?"'
-domain: finance
-category: product_info
-target: 상품(보험)
-case_type: normal
-dataset_id: F_INFO_023
-seq: '023'
-required_tools:
-- product_recommend
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(보험)
+  seq: '023'
+  dataset_id: F_INFO_023
+  required_tools:
+  - product_recommend
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 질병, 사고 내용에 따른 상품 탐색

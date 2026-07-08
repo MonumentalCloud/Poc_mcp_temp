@@ -1,15 +1,16 @@
 ---
 name: unsupported_unintelligible_query
 description: 과도한 오타 등으로 사용자 질의의 의도 파악이 불가능한 경우 사용합니다. 의도 재확인 요청으로 응답합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_269
-seq: '269'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '269'
+  dataset_id: NF_UNSUPP_269
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 의도 파악이 불가능한 질의 (과도한 오타)

@@ -2,16 +2,17 @@
 name: security_menu_guide
 description: '사용자가 간편비밀번호 변경 등 인증·보안 설정 메뉴 위치를 물을 때 사용합니다. 설정/보안 메뉴 경로 안내와 본인인증 필요 가능성 안내가 필요한 경우에 적합합니다.
   예: "간편비밀번호 바꾸는 메뉴 어디 있어?"'
-domain: finance
-category: search
-target: 메뉴
-case_type: normal
-dataset_id: F_SEARCH_005
-seq: '005'
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 메뉴
+  seq: '005'
+  dataset_id: F_SEARCH_005
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 인증보안 메뉴 안내

@@ -1,16 +1,17 @@
 ---
 name: glossary_tax_term
 description: '사용자가 세액공제·소득공제 차이 등 세금·절세 용어를 물을 때 사용합니다. 예: "세액공제랑 소득공제 차이가 뭐야?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_059
-seq: 059
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: 059
+  dataset_id: F_FIN_059
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 세금.절세 용어 설명

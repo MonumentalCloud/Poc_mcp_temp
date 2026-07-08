@@ -1,17 +1,18 @@
 ---
 name: card_billing_amount_inquiry
 description: '사용자가 이번 결제일에 얼마 나가는지 총 결제예정금액을 물을 때 사용합니다. 예: "이번달 결제일에 얼마나가?"'
-domain: finance
-category: card
-target: 이용내역 조회 &
-case_type: normal
-dataset_id: F_CARD_208
-seq: '208'
-required_tools:
-- card_list_inquiry
-- card_billing_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: card
+  sector: finance
+  case_type: normal
+  target: 이용내역 조회 &
+  seq: '208'
+  dataset_id: F_CARD_208
+  required_tools:
+  - card_list_inquiry
+  - card_billing_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이번 결제일 총 결제금액 확인

@@ -1,16 +1,17 @@
 ---
 name: referral_benefit_guide
 description: '사용자가 친구초대를 하면 무엇이 좋은지 혜택·정책을 물을 때 사용합니다. 예: "친구초대 하면 뭐가 좋아?"'
-domain: non_finance
-category: monimo
-target: 친구초대
-case_type: normal
-dataset_id: NF_MONIMO_145
-seq: '145'
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 친구초대
+  seq: '145'
+  dataset_id: NF_MONIMO_145
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이용방법/정책 질의

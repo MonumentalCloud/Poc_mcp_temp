@@ -1,16 +1,17 @@
 ---
 name: monimoney_limit_expiry_inquiry
 description: '사용자가 모니머니 출금한도·유효기간 등 관리화면 노출 데이터를 물을 때 사용합니다. 예: "내 모니머니 유효기간을 알려줘"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_125
-seq: '125'
-required_tools:
-- monimoney_info_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '125'
+  dataset_id: F_MONIMO_125
+  required_tools:
+  - monimoney_info_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 관리화면 노출데이터 관련 질의

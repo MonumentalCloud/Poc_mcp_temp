@@ -1,17 +1,18 @@
 ---
 name: content_detail_inquiry
 description: '사용자가 특정 관심소식 컨텐츠의 내용이 무엇인지 물을 때 사용합니다. 컨텐츠 본문 요약 안내에 적합합니다. 예: "고비맥주 EFT는 무슨 내용이야?"'
-domain: non_finance
-category: monimo
-target: 관심소식
-case_type: normal
-dataset_id: NF_MONIMO_116
-seq: '116'
-required_tools:
-- content_list_inquiry
-- content_detail_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 관심소식
+  seq: '116'
+  dataset_id: NF_MONIMO_116
+  required_tools:
+  - content_list_inquiry
+  - content_detail_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정 관심소식 내용에 대한 질의

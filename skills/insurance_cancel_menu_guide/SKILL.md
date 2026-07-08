@@ -1,16 +1,17 @@
 ---
 name: insurance_cancel_menu_guide
 description: 사용자가 특정 보험상품의 계약 해지를 원할 때 사용합니다. 해지 가능한 메뉴 안내와 바로가기 제공에 적합합니다.
-domain: finance
-category: product_info
-target: 상품(보험)
-case_type: normal
-dataset_id: F_INFO_027
-seq: '027'
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(보험)
+  seq: '027'
+  dataset_id: F_INFO_027
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 계약 해지

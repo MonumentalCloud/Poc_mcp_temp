@@ -1,16 +1,17 @@
 ---
 name: unlisted_stock_inquiry
 description: '사용자가 비상장 회사(예: 마켓컬리)의 주가를 물을 때 사용합니다. 비상장 안내와 상장 종목 확인 제안에 적합합니다. 예: "마켓컬리 주가 알려줘"'
-domain: finance
-category: product_info
-target: 상품(투자)
-case_type: normal
-dataset_id: F_INFO_052
-seq: '052'
-required_tools:
-- stock_item_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(투자)
+  seq: '052'
+  dataset_id: F_INFO_052
+  required_tools:
+  - stock_item_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 종목 검색 및 시세/정보 조회

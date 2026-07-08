@@ -1,16 +1,17 @@
 ---
 name: insurance_claim_status_by_month
 description: '사용자가 특정 월에 청구한 보험금의 진행현황을 물을 때 사용합니다. 예: "3월에 청구한 보험금 어떻게 되가고 있어?"'
-domain: finance
-category: samsung_financial
-target: 보험금 청구 현황
-case_type: normal
-dataset_id: F_SFN_162
-seq: '162'
-required_tools:
-- insurance_claim_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: samsung_financial
+  sector: finance
+  case_type: normal
+  target: 보험금 청구 현황
+  seq: '162'
+  dataset_id: F_SFN_162
+  required_tools:
+  - insurance_claim_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험금 청구내역 조회

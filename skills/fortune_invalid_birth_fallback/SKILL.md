@@ -2,17 +2,18 @@
 name: fortune_invalid_birth_fallback
 description: '사용자가 미래 출생일 등 비정상적인 사주정보로 운세를 요청할 때 사용합니다. 사주정보 재확인 후 운세 안내에 적합합니다. 예: "2036년 5월 1일생의 오늘의
   운세 알려줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: fallback
-dataset_id: NF_CASUAL_263
-seq: '263'
-required_tools:
-- saju_profile_register
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: fallback
+  target: 생활 컨텐츠
+  seq: '263'
+  dataset_id: NF_CASUAL_263
+  required_tools:
+  - saju_profile_register
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 운세확인

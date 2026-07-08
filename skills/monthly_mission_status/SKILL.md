@@ -1,16 +1,17 @@
 ---
 name: monthly_mission_status
 description: '사용자가 이번 달 이달의 미션을 몇 개 달성했는지 참여 현황을 물을 때 사용합니다. 예: "이번달에 이달의 미션 몇 개 달성했어?"'
-domain: non_finance
-category: monimo
-target: 이달의 미션
-case_type: normal
-dataset_id: NF_MONIMO_157
-seq: '157'
-required_tools:
-- monthly_mission_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 이달의 미션
+  seq: '157'
+  dataset_id: NF_MONIMO_157
+  required_tools:
+  - monthly_mission_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이달의 미션 진행 현황 확인

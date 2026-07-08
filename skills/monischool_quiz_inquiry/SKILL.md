@@ -1,16 +1,17 @@
 ---
 name: monischool_quiz_inquiry
 description: '사용자가 지금 응시할 수 있는 모니스쿨 문제가 무엇인지 물을 때 사용합니다. 예: "내가 지금 응시할 수 있는 모니스쿨 문제는 뭐가 있어?"'
-domain: non_finance
-category: monimo
-target: 모니스쿨
-case_type: normal
-dataset_id: NF_MONIMO_141
-seq: '141'
-required_tools:
-- monischool_quiz_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 모니스쿨
+  seq: '141'
+  dataset_id: NF_MONIMO_141
+  required_tools:
+  - monischool_quiz_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 응시 가능한 모니스쿨 문제 확인

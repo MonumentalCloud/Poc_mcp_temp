@@ -1,15 +1,16 @@
 ---
 name: unsupported_document_generation
 description: 사용자가 문서·데이터 파일 생성을 요청한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_272
-seq: '272'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '272'
+  dataset_id: NF_UNSUPP_272
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 문서/데이터 생성 요청

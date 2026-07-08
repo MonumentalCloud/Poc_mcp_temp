@@ -1,16 +1,17 @@
 ---
 name: weekly_category_ranking
 description: '사용자가 지난주 어디에 돈을 제일 많이 썼는지 등 주차 기준 카테고리별 소비 순위를 물을 때 사용합니다. 예: "내가 지난주 어디에 돈을 제일 많이 썼는지 알고싶어"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_089
-seq: 089
-required_tools:
-- spending_category_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 089
+  dataset_id: F_MONIMO_089
+  required_tools:
+  - spending_category_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 주차별 카테고리별 소비 순위

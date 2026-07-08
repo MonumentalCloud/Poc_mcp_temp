@@ -1,17 +1,18 @@
 ---
 name: compatibility_fortune_inquiry
 description: '사용자가 연인·배우자와의 궁합을 보고 싶어할 때 사용합니다. 두 사람의 사주정보 기반 궁합 안내에 적합합니다. 예: "나랑 내 남자친구의 궁합을 보고싶어"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_262
-seq: '262'
-required_tools:
-- saju_profile_inquiry
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '262'
+  dataset_id: NF_CASUAL_262
+  required_tools:
+  - saju_profile_inquiry
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 궁합조회

@@ -1,17 +1,18 @@
 ---
 name: customer_center_location
 description: '사용자가 문의·문제 해결을 위해 고객센터 진입 경로를 찾을 때 사용합니다. 예: "고객센터 어디 있어?"'
-domain: finance
-category: search
-target: 고객센터(FAQ)
-case_type: normal
-dataset_id: F_SEARCH_014
-seq: '014'
-required_tools:
-- menu_search
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 고객센터(FAQ)
+  seq: '014'
+  dataset_id: F_SEARCH_014
+  required_tools:
+  - menu_search
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 고객센터 위치 안내

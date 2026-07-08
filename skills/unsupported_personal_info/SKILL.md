@@ -1,15 +1,16 @@
 ---
 name: unsupported_personal_info
 description: 사용자가 본인 또는 타인의 개인정보(주민번호, 연락처 등)에 대해 질의한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_270
-seq: '270'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '270'
+  dataset_id: NF_UNSUPP_270
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 본인/타인의 개인정보에 대한 질의

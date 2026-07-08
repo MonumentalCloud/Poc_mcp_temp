@@ -1,16 +1,17 @@
 ---
 name: monischool_status_inquiry
 description: '사용자가 이번 달 모니스쿨 참여 현황(참여 여부·정답 여부·잔여 횟수)을 물을 때 사용합니다. 예: "이번달 모니스쿨 얼마나 참여했는지 알려줘"'
-domain: non_finance
-category: monimo
-target: 모니스쿨
-case_type: normal
-dataset_id: NF_MONIMO_140
-seq: '140'
-required_tools:
-- monischool_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 모니스쿨
+  seq: '140'
+  dataset_id: NF_MONIMO_140
+  required_tools:
+  - monischool_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니스쿨 현황 조회

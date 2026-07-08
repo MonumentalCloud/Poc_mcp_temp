@@ -1,15 +1,16 @@
 ---
 name: unsupported_copyright_request
 description: 사용자가 노래 가사 등 저작권을 침해하는 내용을 요청한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_278
-seq: '278'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '278'
+  dataset_id: NF_UNSUPP_278
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 저작권을 침해하는 질의

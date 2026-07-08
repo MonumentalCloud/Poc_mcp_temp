@@ -1,16 +1,17 @@
 ---
 name: pension_education_apply
 description: 'DC/IRP 가입 사용자가 퇴직연금 가입자교육 신청을 원할 때 사용합니다. 법정의무교육과 이수기간 안내에 적합합니다. 예: "퇴직연금 교육 신청할래"'
-domain: finance
-category: securities
-target: 이벤트/교육안내
-case_type: normal
-dataset_id: F_STCK_223
-seq: '223'
-required_tools:
-- pension_education_apply
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 이벤트/교육안내
+  seq: '223'
+  dataset_id: F_STCK_223
+  required_tools:
+  - pension_education_apply
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 퇴직연금가입자교육 신청에 대한 질의

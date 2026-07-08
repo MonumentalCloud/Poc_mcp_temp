@@ -1,16 +1,17 @@
 ---
 name: glossary_mydata_term
 description: '사용자가 마이데이터 등 자산관리·디지털 금융 개념을 물을 때 사용합니다. 예: "마이데이터가 뭐야?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_060
-seq: '060'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '060'
+  dataset_id: F_FIN_060
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 마이데이터/자산관리 용어 설명

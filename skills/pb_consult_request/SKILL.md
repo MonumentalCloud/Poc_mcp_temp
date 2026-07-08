@@ -1,16 +1,17 @@
 ---
 name: pb_consult_request
 description: '사용자가 S.Lounge 전문PB 투자상담 서비스를 요청할 때 사용합니다. 대상 고객 여부 확인 후 진입점 안내에 적합합니다. 예: "s.lounge 상담할래"'
-domain: finance
-category: securities
-target: 서비스요청/상담
-case_type: normal
-dataset_id: F_STCK_222
-seq: '222'
-required_tools:
-- pb_consult_request
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 서비스요청/상담
+  seq: '222'
+  dataset_id: F_STCK_222
+  required_tools:
+  - pb_consult_request
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 전문PB 투자상담서비스 질의

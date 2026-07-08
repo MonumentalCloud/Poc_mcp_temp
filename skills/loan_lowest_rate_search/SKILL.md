@@ -2,16 +2,17 @@
 name: loan_lowest_rate_search
 description: '사용자가 이자율이 가장 낮은 대출 등 특정 조건의 대출상품을 찾을 때 사용합니다. 최저 이자율 기준 정렬 안내에 적합합니다. 예: "이자율 가장 낮은 대출상품
   알려줘"'
-domain: finance
-category: product_info
-target: 상품(대출)
-case_type: normal
-dataset_id: F_INFO_034
-seq: '034'
-required_tools:
-- product_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(대출)
+  seq: '034'
+  dataset_id: F_INFO_034
+  required_tools:
+  - product_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 대출상품 탐색

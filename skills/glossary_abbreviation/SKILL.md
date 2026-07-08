@@ -1,16 +1,17 @@
 ---
 name: glossary_abbreviation
 description: '사용자가 APR 등 약어·영문 금융용어의 뜻을 물을 때 사용합니다. 풀네임과 개념 설명에 적합합니다. 예: "APR이 뭐야?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_063
-seq: '063'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '063'
+  dataset_id: F_FIN_063
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 약어/영문 금융용어 설명

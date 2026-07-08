@@ -1,16 +1,17 @@
 ---
 name: glossary_basic_finance
 description: '사용자가 DSR 등 기본 금융용어의 의미를 물을 때 사용합니다. 정의와 활용 예시 설명에 적합합니다. 예: "DSR이 뭐야?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_054
-seq: '054'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '054'
+  dataset_id: F_FIN_054
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 기본 금융용어 의미 확인

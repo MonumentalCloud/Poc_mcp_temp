@@ -1,16 +1,17 @@
 ---
 name: monimoney_transaction_reason
 description: '사용자가 특정 모니머니 이용 건(입금/출금/결제)이 왜 발생했는지 사유를 물을 때 사용합니다. 예: "이번달에 모니모 KB통장에서 왜 2만원이 자동출금됐어?"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_124
-seq: '124'
-required_tools:
-- monimoney_history_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '124'
+  dataset_id: F_MONIMO_124
+  required_tools:
+  - monimoney_history_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정 이용건별 이용 사유 조회

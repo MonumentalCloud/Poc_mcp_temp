@@ -1,16 +1,17 @@
 ---
 name: popular_content_inquiry
 description: '사용자가 조회수 높은 인기소식을 물을 때 사용합니다. 예: "인기소식 알려줘"'
-domain: non_finance
-category: monimo
-target: 관심소식
-case_type: normal
-dataset_id: NF_MONIMO_113
-seq: '113'
-required_tools:
-- content_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 관심소식
+  seq: '113'
+  dataset_id: NF_MONIMO_113
+  required_tools:
+  - content_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 조회수 높은 인기소식 목록

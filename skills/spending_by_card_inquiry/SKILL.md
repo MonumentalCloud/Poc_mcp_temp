@@ -2,16 +2,17 @@
 name: spending_by_card_inquiry
 description: '사용자가 특정 월에 특정 카드로 얼마 썼는지 물을 때 사용합니다. 카드별 소비금액 합산 조회에 적합합니다. 예: "26년 3월에 삼성 id global카드로
   얼마썼어?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_078
-seq: 078
-required_tools:
-- spending_by_card_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 078
+  dataset_id: F_MONIMO_078
+  required_tools:
+  - spending_by_card_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 소비 금액 조회 (카드별)

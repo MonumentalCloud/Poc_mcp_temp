@@ -1,16 +1,17 @@
 ---
 name: glossary_loan_term
 description: '사용자가 고정금리·변동금리 차이 등 대출 용어를 물을 때 사용합니다. 예: "고정금리랑 변동금리 차이 알려줘"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_058
-seq: 058
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: 058
+  dataset_id: F_FIN_058
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 대출 용어 설명

@@ -2,16 +2,17 @@
 name: consult_channel_guide
 description: '사용자가 온라인상담·전화상담 등 상담 채널 간 차이를 비교하고 선택하려 할 때 사용합니다. 채널별 특징과 운영시간 차이 안내에 적합합니다. 예: "온라인상담이랑
   전화상담 뭐가 달라?"'
-domain: finance
-category: search
-target: 고객센터(FAQ)
-case_type: normal
-dataset_id: F_SEARCH_016
-seq: '016'
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 고객센터(FAQ)
+  seq: '016'
+  dataset_id: F_SEARCH_016
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상담 채널 선택 지원

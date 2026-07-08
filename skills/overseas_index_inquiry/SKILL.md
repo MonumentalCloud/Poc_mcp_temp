@@ -1,16 +1,17 @@
 ---
 name: overseas_index_inquiry
 description: '사용자가 오늘 해외 주식·해외 주요지수 흐름을 물을 때 사용합니다. 예: "오늘 해외주식 어때?"'
-domain: finance
-category: securities
-target: 주요 지수 조회
-case_type: normal
-dataset_id: F_STCK_218
-seq: '218'
-required_tools:
-- market_index_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 주요 지수 조회
+  seq: '218'
+  dataset_id: F_STCK_218
+  required_tools:
+  - market_index_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 국외 주요지수에 대한 질의

@@ -1,16 +1,17 @@
 ---
 name: insurance_claim_history_period
 description: '사용자가 작년 1년 등 특정 기간의 보험금 청구내역 전체를 물을 때 사용합니다. 예: "작년 1년동안 청구한 보험금 알려줘"'
-domain: finance
-category: samsung_financial
-target: 보험금 청구 현황
-case_type: normal
-dataset_id: F_SFN_163
-seq: '163'
-required_tools:
-- insurance_claim_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: samsung_financial
+  sector: finance
+  case_type: normal
+  target: 보험금 청구 현황
+  seq: '163'
+  dataset_id: F_SFN_163
+  required_tools:
+  - insurance_claim_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험금 청구내역 조회

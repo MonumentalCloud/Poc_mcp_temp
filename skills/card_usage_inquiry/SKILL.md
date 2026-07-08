@@ -1,17 +1,18 @@
 ---
 name: card_usage_inquiry
 description: '사용자가 보유한 특정 카드의 이용내역을 물을 때 사용합니다. 최근 2주간 이용내역 안내에 적합합니다. 예: "탭탭o 이용내역 알려줘"'
-domain: finance
-category: card
-target: 이용내역 조회 &
-case_type: normal
-dataset_id: F_CARD_207
-seq: '207'
-required_tools:
-- card_list_inquiry
-- card_usage_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: card
+  sector: finance
+  case_type: normal
+  target: 이용내역 조회 &
+  seq: '207'
+  dataset_id: F_CARD_207
+  required_tools:
+  - card_list_inquiry
+  - card_usage_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 카드 이용내역 조회 (카드 특정)

@@ -1,17 +1,18 @@
 ---
 name: bingo_start_request
 description: '미참여 사용자가 빙고게임 참여를 요청할 때 사용합니다. 개인정보 수집·이용 동의 확인 후 빙고 게임 화면 랜딩에 적합합니다. 예: "빙고 하고 싶어"'
-domain: non_finance
-category: monimo
-target: 빙고게임
-case_type: normal
-dataset_id: NF_MONIMO_134
-seq: '134'
-required_tools:
-- bingo_status_inquiry
-- bingo_start
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 빙고게임
+  seq: '134'
+  dataset_id: NF_MONIMO_134
+  required_tools:
+  - bingo_status_inquiry
+  - bingo_start
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 빙고게임 시작 요청

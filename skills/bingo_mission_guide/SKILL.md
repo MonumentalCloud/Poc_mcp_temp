@@ -1,16 +1,17 @@
 ---
 name: bingo_mission_guide
 description: '사용자가 빙고 달성을 위한 미션별 달성 기준·방법을 물을 때 사용합니다. 예: "빙고 달성하려면 어떻게 해야 해?"'
-domain: non_finance
-category: monimo
-target: 빙고게임
-case_type: normal
-dataset_id: NF_MONIMO_137
-seq: '137'
-required_tools:
-- bingo_mission_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 빙고게임
+  seq: '137'
+  dataset_id: NF_MONIMO_137
+  required_tools:
+  - bingo_mission_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 빙고게임 미션/조건 질의 (참여내역/달성기준)

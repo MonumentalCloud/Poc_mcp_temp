@@ -1,16 +1,17 @@
 ---
 name: referral_status_inquiry
 description: '사용자가 지금까지 친구초대에 몇 명 성공했는지 진행 현황을 물을 때 사용합니다. 예: "나 지금까지 친구초대 몇 명 성공했어?"'
-domain: non_finance
-category: monimo
-target: 친구초대
-case_type: normal
-dataset_id: NF_MONIMO_147
-seq: '147'
-required_tools:
-- referral_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 친구초대
+  seq: '147'
+  dataset_id: NF_MONIMO_147
+  required_tools:
+  - referral_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 친구초대 진행 현황 확인

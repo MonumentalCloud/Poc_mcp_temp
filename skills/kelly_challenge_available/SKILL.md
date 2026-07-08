@@ -2,16 +2,17 @@
 name: kelly_challenge_available
 description: '사용자가 지금 신청 가능한 챌린지 목록과 기간을 물을 때 사용합니다. 신청 가능 기간(매월 16일~말일) 내 조회에 적합합니다. 예: "지금 참여가능한 챌린지를
   알려줘"'
-domain: non_finance
-category: monimo
-target: 켈리 챌린지
-case_type: normal
-dataset_id: NF_MONIMO_106
-seq: '106'
-required_tools:
-- challenge_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 챌린지
+  seq: '106'
+  dataset_id: NF_MONIMO_106
+  required_tools:
+  - challenge_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 신청 가능한 챌린지 현황(챌린지명/챌린지기간)

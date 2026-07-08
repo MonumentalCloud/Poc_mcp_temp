@@ -1,17 +1,18 @@
 ---
 name: monimoney_transfer_to_account
 description: '사용자가 남은 모니머니를 본인 통장으로 보내 달라고 요청할 때 사용합니다. 출금 계좌 확인 후 이체 실행에 적합합니다. 예: "남은 모니머니 내 통장으로 보내줘"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_126
-seq: '126'
-required_tools:
-- monimoney_balance_inquiry
-- monimoney_withdraw
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '126'
+  dataset_id: F_MONIMO_126
+  required_tools:
+  - monimoney_balance_inquiry
+  - monimoney_withdraw
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 관련 액션 수행 (충전 - 계좌 출금)

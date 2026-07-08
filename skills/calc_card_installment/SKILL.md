@@ -1,16 +1,17 @@
 ---
 name: calc_card_installment
 description: '사용자가 카드 할부 시 월 납부액 계산을 원할 때 사용합니다. 무이자 여부 확인 후 월 예상 납부액 제공에 적합합니다. 예: "100만원 12개월 할부면 얼마야?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_068
-seq: 068
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: 068
+  dataset_id: F_FIN_068
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 카드 할부 계산

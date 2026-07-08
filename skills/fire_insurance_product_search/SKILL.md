@@ -1,17 +1,18 @@
 ---
 name: fire_insurance_product_search
 description: '사용자가 삼성화재의 특정 보험상품이나 키워드(예: AI 보험)로 상품을 찾을 때 사용합니다. 예: "삼성화재에 AI 보험이 있다는데 뭐야?"'
-domain: finance
-category: product_info
-target: 상품(보험)
-case_type: normal
-dataset_id: F_INFO_025
-seq: '025'
-required_tools:
-- product_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(보험)
+  seq: '025'
+  dataset_id: F_INFO_025
+  required_tools:
+  - product_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 화재보험상품 탐색

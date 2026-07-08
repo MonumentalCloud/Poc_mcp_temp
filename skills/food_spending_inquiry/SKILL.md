@@ -1,16 +1,17 @@
 ---
 name: food_spending_inquiry
 description: '사용자가 기준월의 식비 지출 금액을 물을 때 사용합니다. 외식업종 소비금액 총합 안내에 적합합니다. 예: "나 이번달 식비에 얼마쓴거야..?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_084
-seq: 084
-required_tools:
-- spending_category_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 084
+  dataset_id: F_MONIMO_084
+  required_tools:
+  - spending_category_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 조회월 기준 식비 금액

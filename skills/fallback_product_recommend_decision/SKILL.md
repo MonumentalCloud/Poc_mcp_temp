@@ -1,15 +1,16 @@
 ---
 name: fallback_product_recommend_decision
 description: 사용자가 '어떤 상품이 제일 좋아?'처럼 단정적 상품 추천·선택 결정을 요청한 경우 사용합니다. 특정 상품 단정 대신 비교 정보 제공으로 대체 안내합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: fallback
-dataset_id: NF_UNSUPP_282
-seq: '282'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: fallback
+  target: 미지원 질문
+  seq: '282'
+  dataset_id: NF_UNSUPP_282
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상품 추천

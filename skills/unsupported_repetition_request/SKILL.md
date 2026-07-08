@@ -1,15 +1,16 @@
 ---
 name: unsupported_repetition_request
 description: 사용자가 동일 문장 반복 출력이나 투표 유도 등을 요청한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_274
-seq: '274'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '274'
+  dataset_id: NF_UNSUPP_274
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 반복/투표 유도 요청

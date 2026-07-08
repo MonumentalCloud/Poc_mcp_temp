@@ -1,16 +1,17 @@
 ---
 name: market_index_inquiry
 description: '사용자가 오늘의 전반적인 주요 지수를 물을 때 사용합니다. 국내/해외 주요지수 안내에 적합합니다. 예: "오늘의 주요 지수를 알려줘"'
-domain: finance
-category: securities
-target: 주요 지수 조회
-case_type: normal
-dataset_id: F_STCK_216
-seq: '216'
-required_tools:
-- market_index_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 주요 지수 조회
+  seq: '216'
+  dataset_id: F_STCK_216
+  required_tools:
+  - market_index_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 주요지수 질의

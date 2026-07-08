@@ -1,16 +1,17 @@
 ---
 name: calc_savings_maturity
 description: '사용자가 적금·예금 만기 예상 금액 계산을 원할 때 사용합니다. 월 납입금·기간·금리 기반 계산에 적합합니다. 예: "월 50만원 적금 넣으면 얼마 모여?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_066
-seq: '066'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '066'
+  dataset_id: F_FIN_066
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 예적금 수익 계산

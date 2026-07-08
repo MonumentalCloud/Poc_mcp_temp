@@ -2,16 +2,17 @@
 name: food_spending_detail
 description: '사용자가 기준월에 무엇을 제일 많이 먹었는지 등 식비 상세 분석을 물을 때 사용합니다. 외식업종 중 최다 소비 카테고리 안내에 적합합니다. 예: "나 지난달에
   뭐 제일 많이 먹었어?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_086
-seq: 086
-required_tools:
-- spending_category_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 086
+  dataset_id: F_MONIMO_086
+  required_tools:
+  - spending_category_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 조회월 기준 식비 금액 (상세)

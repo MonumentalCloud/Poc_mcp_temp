@@ -1,17 +1,18 @@
 ---
 name: mydata_asset_guide
 description: '사용자가 자산(마이데이터) 화면에서 무엇을 할 수 있는지 등 일반적인 질문을 할 때 사용합니다. 예: "자산화면에선 뭘할수있어?"'
-domain: finance
-category: monimo
-target: 자산 (마이데이터)
-case_type: normal
-dataset_id: F_MONIMO_076
-seq: '076'
-required_tools:
-- asset_summary_inquiry
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (마이데이터)
+  seq: '076'
+  dataset_id: F_MONIMO_076
+  required_tools:
+  - asset_summary_inquiry
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 자산(마이데이터) 관련 일반적 질문

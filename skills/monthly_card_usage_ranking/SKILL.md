@@ -1,16 +1,17 @@
 ---
 name: monthly_card_usage_ranking
 description: '사용자가 특정 월에 가장 많이/적게 쓴 카드가 무엇인지 물을 때 사용합니다. 예: "지난달 가장 조금 쓴 카드가 뭔지 알려줘"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_083
-seq: 083
-required_tools:
-- spending_by_card_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 083
+  dataset_id: F_MONIMO_083
+  required_tools:
+  - spending_by_card_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정월 기준 사용 카드

@@ -2,16 +2,17 @@
 name: other_card_payment_fallback
 description: '사용자가 타사 카드의 즉시결제를 요청할 때 사용합니다. 타사 카드 결제는 해당 카드사에서만 가능함을 안내하고 이용내역 조회로 대체하는 경우에 적합합니다. 예:
   "현대카드 이용금액 바로 결제하고싶어"'
-domain: finance
-category: card
-target: 이용내역 조회 &
-case_type: fallback
-dataset_id: F_CARD_214
-seq: '214'
-required_tools:
-- other_card_usage_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: card
+  sector: finance
+  case_type: fallback
+  target: 이용내역 조회 &
+  seq: '214'
+  dataset_id: F_CARD_214
+  required_tools:
+  - other_card_usage_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 타사 카드 즉시결제

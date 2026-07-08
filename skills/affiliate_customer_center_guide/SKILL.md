@@ -2,16 +2,17 @@
 name: affiliate_customer_center_guide
 description: '사용자가 삼성생명·삼성화재 등 관계사 문의를 어디로 해야 하는지 헷갈릴 때 사용합니다. 관계사별 고객센터 구분과 연결 경로 안내에 적합합니다. 예: "삼성생명
   문의는 어디로 해야해?"'
-domain: finance
-category: search
-target: 고객센터(FAQ)
-case_type: normal
-dataset_id: F_SEARCH_018
-seq: 018
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 고객센터(FAQ)
+  seq: 018
+  dataset_id: F_SEARCH_018
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 관계사 고객센터 구분

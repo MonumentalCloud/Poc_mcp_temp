@@ -1,16 +1,17 @@
 ---
 name: weekly_daily_spending
 description: '사용자가 지난주 언제(어느 요일/일자) 돈을 가장 많이 썼는지 물을 때 사용합니다. 예: "내가 지난주 언제 돈을 제일 많이 썼어?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_090
-seq: 090
-required_tools:
-- spending_summary_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 090
+  dataset_id: F_MONIMO_090
+  required_tools:
+  - spending_summary_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 주차별 요일 기준 소비

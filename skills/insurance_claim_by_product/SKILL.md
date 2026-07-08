@@ -1,16 +1,17 @@
 ---
 name: insurance_claim_by_product
 description: '사용자가 암보험 등 특정 상품 기준의 보험금 청구내역을 물을 때 사용합니다. 예: "암보험 청구내역 알려줘"'
-domain: finance
-category: samsung_financial
-target: 보험금 청구 현황
-case_type: normal
-dataset_id: F_SFN_164
-seq: '164'
-required_tools:
-- insurance_claim_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: samsung_financial
+  sector: finance
+  case_type: normal
+  target: 보험금 청구 현황
+  seq: '164'
+  dataset_id: F_SFN_164
+  required_tools:
+  - insurance_claim_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험금 청구내역 조회

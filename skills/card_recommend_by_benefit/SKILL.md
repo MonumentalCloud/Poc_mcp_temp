@@ -1,16 +1,17 @@
 ---
 name: card_recommend_by_benefit
 description: '사용자가 전기차 충전 할인처럼 특정 혜택 기준으로 카드 추천을 요청할 때 사용합니다. 예: "나 전기차 충전 많이하는데 할인되는 카드 있어?"'
-domain: finance
-category: product_info
-target: 상품(카드)
-case_type: normal
-dataset_id: F_INFO_042
-seq: '042'
-required_tools:
-- product_recommend
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(카드)
+  seq: '042'
+  dataset_id: F_INFO_042
+  required_tools:
+  - product_recommend
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상품 추천

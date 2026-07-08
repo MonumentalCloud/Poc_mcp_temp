@@ -1,16 +1,17 @@
 ---
 name: glossary_easy_payment_term
 description: '사용자가 선불전자지급수단 등 간편결제·포인트 용어를 물을 때 사용합니다. 모니머니 등 대표 예시와 충전 구조 안내에 적합합니다. 예: "선불전자지급수단이 뭐야?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_061
-seq: '061'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '061'
+  dataset_id: F_FIN_061
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 간편결제, 포인트 용어 설명

@@ -18,7 +18,9 @@ data/dataset.json          # xlsx '2) DATA' 시트에서 추출한 189행
 skills/<name>/
   SKILL.md                 # 생성된 스킬 189개
   scripts/hook.py          # 스킬별 훅 (before_tool/after_tool/finalize 등)
-vdb/skills_vdb.json        # 빌드된 VDB 인덱스 (임베딩 + payload)
+vdb/skills_vdb.json        # PoC 내장 VDB 인덱스 (임베딩 + payload)
+genos/
+  skill_document_processor.py  # GenOS VDB ingestion preprocessor (SKILL.md 1개 = 벡터 1개)
 server/
   main.py                  # FastMCP 서버 엔트리포인트
   mock_tools.py            # 목업 툴 81개 구현
@@ -79,7 +81,7 @@ Genos(또는 임의 MCP 클라이언트) 연결 정보:
 
 스킬 검색은 그 자체가 MCP 툴이다 — Genos 에이전트는 아래 순서로 호출한다.
 
-1. `search_skills(query, top_k, domain?, category?, case_type?, required_tool?)`
+1. `search_skills(query, top_k, domain?, sector?, case_type?, required_tool?)`
    — 사용자 발화로 VDB 시맨틱 검색. **name/description/score만** 반환 (1단계)
 2. `load_skill(name)` — 적중 스킬의 body(payload)를 로드해 실행 매뉴얼로 사용 (2단계)
 3. `run_skill_hook(skill, stage, ...)` — 훅 실행(아래 참조) 후, body의
@@ -123,43 +125,34 @@ run_skill_hook(stage="finalize")   → 유저향 문구 템플릿
 
 ## VDB
 
-두 가지 backend를 환경변수로 선택한다 (검색 API·스킬 툴 인터페이스는 동일):
+**운영 구성 — GenOS 자체 VDB에 적재**: 스킬 검색은 GenOS(planner)의 벡터 DB가
+담당하고, 이 MCP 서버는 도메인 툴 + `load_skill`/`run_skill_hook` 실행을 담당한다.
 
-| | `VDB_BACKEND=local` (기본) | `VDB_BACKEND=weaviate` (운영 구성) |
-|---|---|---|
-| 저장/검색 | `vdb/skills_vdb.json` + 코사인 | Weaviate nearVector (REST/GraphQL, gRPC 클라이언트 불필요) |
-| 임베딩 | 문자 2~3-gram TF-IDF (키·네트워크 불필요) | 원격 Qwen 임베딩 API (`EMBEDDER=qwen_api`) |
-| 시맨틱 매칭 | 어휘(문자) 기반 — 동의어에 약함 | Qwen3-Embedding 기반 시맨틱 매칭 |
+- ingestion preprocessor: `genos/skill_document_processor.py`
+  (GenOS 단일 파일 DocumentProcessor 규약 — SKILL.md 1개 = 벡터 1개,
+  `text`=frontmatter.description(임베딩), `body`=본문 markdown(비임베딩 payload),
+  `metadata.*`(domain/sector/case_type/required_tools/…)는 top-level 필터 속성으로 flatten)
+- 업로드 대상: `skills/*/SKILL.md` 189개 (flat 파일명 zip: `dist/genos_skills.zip` 빌드 가능)
 
-**Qwen 임베딩 API** (`server/skill_vdb.py: QwenAPIEmbedder`)는 OpenAI-호환
-`/v1/embeddings`를 호출한다. 기본값은 SiliconFlow 무료 티어:
+frontmatter 규약 (GenOS 프로세서와 이 서버가 동일한 파일을 읽는다):
 
-```bash
-export QWEN_API_KEY=sk-...                                # 필수
-export QWEN_API_BASE=https://api.siliconflow.cn/v1        # 기본값
-export QWEN_EMBEDDING_MODEL=Qwen/Qwen3-Embedding-0.6B     # 기본값
-# DashScope를 쓰려면: QWEN_API_BASE=https://dashscope.aliyuncs.com/compatible-mode/v1
-#                   QWEN_EMBEDDING_MODEL=text-embedding-v4
+```yaml
+---
+name: card_billing_amount_inquiry        # top-level (필수)
+description: '...트리거 설명 + 대표 발화'  # top-level (필수, 임베딩 대상)
+metadata:                                # 필터/라우팅 커스텀 키 (flatten 대상)
+  domain: card         # search|event|product_info|financial_info|monimo|samsung_financial|life|fire|card|securities|casual|unsupported
+  sector: finance      # finance | non_finance
+  case_type: normal    # normal | error | multiturn | fallback
+  required_tools: [card_list_inquiry, card_billing_inquiry]
+  hooks: scripts/hook.py
+  version: 1.0.0
+---
 ```
 
-**Weaviate 적재** (한 번 실행 — 컬렉션 `MonimoSkill` 생성·업서트):
-
-```bash
-export WEAVIATE_URL=https://xxxx.weaviate.cloud
-export WEAVIATE_API_KEY=...                               # self-hosted 무인증이면 생략
-python scripts/build_vdb.py --backend weaviate
-```
-
-**서버를 Weaviate 모드로 실행** (fly.io면 `fly secrets set`으로 주입):
-
-```bash
-VDB_BACKEND=weaviate EMBEDDER=qwen_api \
-QWEN_API_KEY=... WEAVIATE_URL=... WEAVIATE_API_KEY=... python -m server.main
-```
-
-로컬 backend의 기본 임베더는 **문자 2~3-gram TF-IDF** (한국어에 토크나이저 없이
-동작). `Embedder` 인터페이스(`fit/embed/state/from_state`)를 구현하면 다른 임베딩
-모델로도 교체 가능 — 인덱스 포맷은 동일하다.
+**PoC 내장 backend(기본)**: 이 서버의 `search_skills`는 `vdb/skills_vdb.json`
+(문자 2~3-gram TF-IDF, 키·네트워크 불필요)을 사용한다 — GenOS 없이 단독 테스트용.
+`Embedder` 인터페이스(`fit/embed/state/from_state`)를 구현하면 교체 가능하다.
 
 리콜 (골든 대표 발화 172건, `scripts/eval_vdb.py`):
 

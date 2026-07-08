@@ -1,16 +1,17 @@
 ---
 name: fx_rate_inquiry
 description: '사용자가 오늘 환율이 어떤지 물을 때 사용합니다. 원달러 환율과 최근 일주일 등락 안내에 적합합니다. 예: "오늘 환율이 어때?"'
-domain: finance
-category: securities
-target: 주요 지수 조회
-case_type: normal
-dataset_id: F_STCK_219
-seq: '219'
-required_tools:
-- market_index_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 주요 지수 조회
+  seq: '219'
+  dataset_id: F_STCK_219
+  required_tools:
+  - market_index_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 기타 특정 지수 조회 요청

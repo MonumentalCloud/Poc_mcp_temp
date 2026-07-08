@@ -1,16 +1,17 @@
 ---
 name: kelly_balance_inquiry
 description: '사용자가 현재 보유한 켈리 개수(일반/스페셜)를 물을 때 사용합니다. 예: "나 지금 켈리 몇 개 있는지 알려줘"'
-domain: non_finance
-category: monimo
-target: 켈리 상점
-case_type: normal
-dataset_id: NF_MONIMO_100
-seq: '100'
-required_tools:
-- kelly_balance_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 상점
+  seq: '100'
+  dataset_id: NF_MONIMO_100
+  required_tools:
+  - kelly_balance_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 켈리 보유현황 조회

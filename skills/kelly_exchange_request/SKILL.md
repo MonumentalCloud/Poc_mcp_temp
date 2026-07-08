@@ -1,17 +1,18 @@
 ---
 name: kelly_exchange_request
 description: '사용자가 보유 켈리를 모니머니로 교환해 달라고 요청할 때 사용합니다. 보유 켈리 확인 후 교환 실행에 적합합니다. 예: "내 켈리 모니머니로 교환해줘"'
-domain: non_finance
-category: monimo
-target: 켈리 상점
-case_type: normal
-dataset_id: NF_MONIMO_102
-seq: '102'
-required_tools:
-- kelly_balance_inquiry
-- kelly_exchange_request
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 상점
+  seq: '102'
+  dataset_id: NF_MONIMO_102
+  required_tools:
+  - kelly_balance_inquiry
+  - kelly_exchange_request
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 켈리 교환 요청

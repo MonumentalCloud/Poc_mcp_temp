@@ -56,22 +56,12 @@ _vdb: SkillVDB | None = None
 _hook_cache: dict[str, Any] = {}
 
 
-def _get_vdb():
-    """VDB backend 선택 (env):
-    - VDB_BACKEND=local (기본): vdb/skills_vdb.json 로드
-    - VDB_BACKEND=weaviate: Weaviate nearVector 검색 + 원격 임베딩 API
-      (EMBEDDER=qwen_api, QWEN_API_KEY, WEAVIATE_URL[, WEAVIATE_API_KEY] 필요)
-    """
+def _get_vdb() -> SkillVDB:
     global _vdb
     if _vdb is None:
-        if os.getenv("VDB_BACKEND", "local") == "weaviate":
-            from .skill_vdb import make_embedder
-            from .weaviate_vdb import WeaviateVDB
-            _vdb = WeaviateVDB(make_embedder(os.getenv("EMBEDDER", "qwen_api")))
-        else:
-            if not VDB_PATH.exists():
-                raise RuntimeError("vdb/skills_vdb.json not found — run `python scripts/build_vdb.py` first")
-            _vdb = SkillVDB.load(VDB_PATH)
+        if not VDB_PATH.exists():
+            raise RuntimeError("vdb/skills_vdb.json not found — run `python scripts/build_vdb.py` first")
+        _vdb = SkillVDB.load(VDB_PATH)
     return _vdb
 
 
@@ -90,13 +80,13 @@ def _get_hook_module(skill_name: str):
 
 @mcp.tool
 def search_skills(query: str, top_k: int = 5, domain: Optional[str] = None,
-                  category: Optional[str] = None, case_type: Optional[str] = None,
+                  sector: Optional[str] = None, case_type: Optional[str] = None,
                   required_tool: Optional[str] = None) -> dict:
     """사용자 발화로 스킬 VDB를 시맨틱 검색합니다 (1단계 — name/description/score만 반환).
-    filters: domain(finance|non_finance), category(search|event|product_info|financial_info|
-    monimo|samsung_financial|life|fire|card|securities|casual|unsupported),
+    filters: domain(search|event|product_info|financial_info|monimo|samsung_financial|
+    life|fire|card|securities|casual|unsupported), sector(finance|non_finance),
     case_type(normal|error|multiturn|fallback), required_tool(툴명)."""
-    results = _get_vdb().search(query, top_k=top_k, domain=domain, category=category,
+    results = _get_vdb().search(query, top_k=top_k, domain=domain, sector=sector,
                                 case_type=case_type, required_tool=required_tool)
     return {"query": query, "count": len(results), "results": results}
 
@@ -115,14 +105,14 @@ def load_skill(name: str) -> dict:
 
 
 @mcp.tool
-def list_skills(domain: Optional[str] = None, category: Optional[str] = None) -> dict:
-    """등록된 스킬 목록(name/description/category)을 조회합니다. 디버깅/탐색용."""
+def list_skills(domain: Optional[str] = None, sector: Optional[str] = None) -> dict:
+    """등록된 스킬 목록(name/description/domain)을 조회합니다. 디버깅/탐색용."""
     entries = _get_vdb().entries
     out = [
         {"name": e["name"], "description": e["description"], "domain": e["domain"],
-         "category": e["category"], "case_type": e["case_type"]}
+         "sector": e["sector"], "case_type": e["case_type"]}
         for e in entries
-        if (not domain or e["domain"] == domain) and (not category or e["category"] == category)
+        if (not domain or e["domain"] == domain) and (not sector or e["sector"] == sector)
     ]
     return {"count": len(out), "skills": out}
 

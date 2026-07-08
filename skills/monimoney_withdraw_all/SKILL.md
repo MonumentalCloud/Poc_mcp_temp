@@ -1,17 +1,18 @@
 ---
 name: monimoney_withdraw_all
 description: '사용자가 보유 모니머니 전액 출금을 요청할 때 사용합니다. 수취 계좌·금액 확인 후 출금 실행에 적합합니다. 예: "내가 가지고 있는 모니머니 전액을 출금하고싶어"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_127
-seq: '127'
-required_tools:
-- monimoney_balance_inquiry
-- monimoney_withdraw
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '127'
+  dataset_id: F_MONIMO_127
+  required_tools:
+  - monimoney_balance_inquiry
+  - monimoney_withdraw
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 관련 액션 수행 (출금)

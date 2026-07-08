@@ -1,16 +1,17 @@
 ---
 name: card_product_recommend
 description: '사용자가 조건 없이 카드 추천을 원할 때 사용합니다. 원하는 혜택을 추가 질문한 뒤 상품을 안내하는 경우에 적합합니다. 예: "카드 하나 만드려고하는데 추천해줘"'
-domain: finance
-category: product_info
-target: 상품(카드)
-case_type: normal
-dataset_id: F_INFO_041
-seq: '041'
-required_tools:
-- product_recommend
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(카드)
+  seq: '041'
+  dataset_id: F_INFO_041
+  required_tools:
+  - product_recommend
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상품 추천

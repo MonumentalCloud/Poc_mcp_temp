@@ -1,17 +1,18 @@
 ---
 name: kelly_challenge_guide
 description: '사용자가 켈리 챌린지가 무엇인지, 신청은 어떻게 하는지 등 서비스 전반을 물을 때 사용합니다. 예: "챌린지가 뭐야? 신청 어떻게 해?"'
-domain: non_finance
-category: monimo
-target: 켈리 챌린지
-case_type: normal
-dataset_id: NF_MONIMO_104
-seq: '104'
-required_tools:
-- faq_search
-- challenge_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 챌린지
+  seq: '104'
+  dataset_id: NF_MONIMO_104
+  required_tools:
+  - faq_search
+  - challenge_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 켈리 챌린지 관련 일반적 질문

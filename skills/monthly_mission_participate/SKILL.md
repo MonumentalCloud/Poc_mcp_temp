@@ -2,17 +2,18 @@
 name: monthly_mission_participate
 description: '사용자가 특정 이달의 미션(예: 오늘의 영어 확인하기) 수행을 요청할 때 사용합니다. 미션 내용 안내와 랜딩 화면 제공에 적합합니다. 예: "오늘의 영어 확인하기
   미션 참여할래"'
-domain: non_finance
-category: monimo
-target: 이달의 미션
-case_type: normal
-dataset_id: NF_MONIMO_159
-seq: '159'
-required_tools:
-- monthly_mission_list_inquiry
-- monthly_mission_participate
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 이달의 미션
+  seq: '159'
+  dataset_id: NF_MONIMO_159
+  required_tools:
+  - monthly_mission_list_inquiry
+  - monthly_mission_participate
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이달의 미션 수행 요청

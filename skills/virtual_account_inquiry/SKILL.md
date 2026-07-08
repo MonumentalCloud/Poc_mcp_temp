@@ -1,16 +1,17 @@
 ---
 name: virtual_account_inquiry
 description: '사용자가 보험료 납부용 가상계좌번호를 물을 때 사용합니다. 예: "가상계좌번호 알려줘"'
-domain: finance
-category: fire
-target: 가상계좌안내
-case_type: normal
-dataset_id: F_FIRE_201
-seq: '201'
-required_tools:
-- virtual_account_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: fire
+  sector: finance
+  case_type: normal
+  target: 가상계좌안내
+  seq: '201'
+  dataset_id: F_FIRE_201
+  required_tools:
+  - virtual_account_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 가상계좌번호 확인요청

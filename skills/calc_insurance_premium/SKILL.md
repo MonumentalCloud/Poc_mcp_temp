@@ -2,16 +2,17 @@
 name: calc_insurance_premium
 description: '사용자가 보험 가입 시 보험료가 대략 얼마인지 물을 때 사용합니다. 연령·성별·보장범위에 따라 달라진다는 안내와 예상치 제공에 적합합니다. 예: "암보험 가입하면
   얼마 정도 나와?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_073
-seq: '073'
-required_tools:
-- insurance_premium_estimate
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '073'
+  dataset_id: F_FIN_073
+  required_tools:
+  - insurance_premium_estimate
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험료 계산 안내

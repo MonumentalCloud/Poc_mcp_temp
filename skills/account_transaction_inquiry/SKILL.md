@@ -1,17 +1,18 @@
 ---
 name: account_transaction_inquiry
 description: '사용자가 특정 일자의 통장 거래내역을 물을 때 사용합니다. 예: "어제 통장 거래내역을 뽑아줘"'
-domain: finance
-category: monimo
-target: 마이통장
-case_type: normal
-dataset_id: F_MONIMO_094
-seq: 094
-required_tools:
-- account_list_inquiry
-- account_transaction_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 마이통장
+  seq: 094
+  dataset_id: F_MONIMO_094
+  required_tools:
+  - account_list_inquiry
+  - account_transaction_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 통장 거래내역 확인

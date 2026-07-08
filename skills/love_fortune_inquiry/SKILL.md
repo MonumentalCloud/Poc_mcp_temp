@@ -1,17 +1,18 @@
 ---
 name: love_fortune_inquiry
 description: '사용자가 오늘의 사랑운 등 세부 운세를 물을 때 사용합니다. 예: "오늘 사랑운 어떤지 알려줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_256
-seq: '256'
-required_tools:
-- saju_profile_inquiry
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '256'
+  dataset_id: NF_CASUAL_256
+  required_tools:
+  - saju_profile_inquiry
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 운세 질의

@@ -9,11 +9,6 @@ primary_region = "nrt"      # Tokyo (한국에서 가장 가까운 리전)
 [env]
 PORT = "8000"
 FASTMCP_HTTP_HOST_ORIGIN_PROTECTION = "false"
-# Weaviate + Qwen 임베딩으로 전환하려면 (README 'VDB' 참조):
-#   1) fly secrets set QWEN_API_KEY=... WEAVIATE_URL=... WEAVIATE_API_KEY=...
-#   2) 아래 두 줄 주석 해제 후 재배포 (적재는 scripts/build_vdb.py --backend weaviate)
-# VDB_BACKEND = "weaviate"
-# EMBEDDER = "qwen_api"
 
 [http_service]
 internal_port = 8000

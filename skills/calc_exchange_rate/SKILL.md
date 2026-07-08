@@ -1,16 +1,17 @@
 ---
 name: calc_exchange_rate
 description: '사용자가 외화 금액을 원화로 환산해 달라고 할 때 사용합니다. 현재 환율 기준 계산과 매매기준/카드환율 차이 설명에 적합합니다. 예: "100달러면 한국돈 얼마야?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_070
-seq: '070'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '070'
+  dataset_id: F_FIN_070
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 환율 계산

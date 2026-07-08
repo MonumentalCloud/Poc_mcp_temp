@@ -2,17 +2,18 @@
 name: insurance_premium_inquiry
 description: '사용자가 보험 가입 시 보험료가 얼마인지 물을 때 사용합니다. 가입 가능 상품과 연령대별 예상 보험료 제시에 적합합니다. 예: "암보험 가입하려는데 보험료 얼마치
   알려줘"'
-domain: finance
-category: product_info
-target: 상품(보험)
-case_type: normal
-dataset_id: F_INFO_026
-seq: '026'
-required_tools:
-- product_search
-- insurance_premium_estimate
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(보험)
+  seq: '026'
+  dataset_id: F_INFO_026
+  required_tools:
+  - product_search
+  - insurance_premium_estimate
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험료 확인

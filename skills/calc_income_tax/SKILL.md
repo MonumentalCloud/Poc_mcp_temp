@@ -1,16 +1,17 @@
 ---
 name: calc_income_tax
 description: '사용자가 연봉 대비 실수령액 계산을 원할 때 사용합니다. 국민연금·건강보험·소득세 반영 안내에 적합합니다. 예: "연봉 5000이면 실수령 얼마야?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_071
-seq: '071'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '071'
+  dataset_id: F_FIN_071
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 세금 계산

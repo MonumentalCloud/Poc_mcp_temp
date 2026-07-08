@@ -2,17 +2,18 @@
 name: faq_feature_guide
 description: '사용자가 자주 묻는 질문(FAQ)을 어디서 보는지, 스스로 해결 가능한 정보를 찾을 때 사용합니다. FAQ 메뉴 위치와 검색 기능 안내에 적합합니다. 예: "자주
   묻는 질문은 어디서 봐?"'
-domain: finance
-category: search
-target: 고객센터(FAQ)
-case_type: normal
-dataset_id: F_SEARCH_015
-seq: '015'
-required_tools:
-- menu_search
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 고객센터(FAQ)
+  seq: '015'
+  dataset_id: F_SEARCH_015
+  required_tools:
+  - menu_search
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # FAQ 기능 설명

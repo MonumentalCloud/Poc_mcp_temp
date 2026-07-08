@@ -1,16 +1,17 @@
 ---
 name: referral_code_inquiry
 description: '사용자가 본인의 친구초대 코드·링크를 확인하려 할 때 사용합니다. 예: "모니모 친구초대하고싶은데 어떤 링크를 줘야해?"'
-domain: non_finance
-category: monimo
-target: 친구초대
-case_type: normal
-dataset_id: NF_MONIMO_146
-seq: '146'
-required_tools:
-- referral_code_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 친구초대
+  seq: '146'
+  dataset_id: NF_MONIMO_146
+  required_tools:
+  - referral_code_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 사용자의 초대코드 확인

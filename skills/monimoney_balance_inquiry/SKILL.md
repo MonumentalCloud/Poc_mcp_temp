@@ -1,16 +1,17 @@
 ---
 name: monimoney_balance_inquiry
 description: '사용자가 현재 보유한 모니머니 잔액을 물을 때 사용합니다. 예: "지금 갖고있는 모니머니는 얼마야?"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_122
-seq: '122'
-required_tools:
-- monimoney_balance_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '122'
+  dataset_id: F_MONIMO_122
+  required_tools:
+  - monimoney_balance_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 잔액 조회

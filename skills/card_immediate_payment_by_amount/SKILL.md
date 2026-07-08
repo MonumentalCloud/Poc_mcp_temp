@@ -2,17 +2,18 @@
 name: card_immediate_payment_by_amount
 description: '사용자가 이번 달 카드 금액을 금액 기준으로 즉시결제하려 할 때 사용합니다. 결제예상금액 확인 후 즉시결제 실행에 적합합니다. 예: "내 카드 이번달 금액 바로
   결제 하고 싶어"'
-domain: finance
-category: card
-target: 이용내역 조회 &
-case_type: normal
-dataset_id: F_CARD_210
-seq: '210'
-required_tools:
-- card_billing_inquiry
-- card_immediate_payment
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: card
+  sector: finance
+  case_type: normal
+  target: 이용내역 조회 &
+  seq: '210'
+  dataset_id: F_CARD_210
+  required_tools:
+  - card_billing_inquiry
+  - card_immediate_payment
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 즉시결제 요청 (금액기준)

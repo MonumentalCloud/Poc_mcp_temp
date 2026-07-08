@@ -2,15 +2,16 @@
 name: company_event_list
 description: '사용자가 삼성카드·삼성생명 등 특정 회사가 진행하는 이벤트 목록을 물을 때 사용합니다. 진행회사 필터 기준의 이벤트 조회에 적합합니다. 예: "진행중인 삼성카드
   이벤트가 뭐가 있을까?"'
-domain: non_finance
-category: event
-target: 혜택 > 이벤트
-case_type: normal
-seq: 008
-required_tools:
-- event_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: event
+  sector: non_finance
+  case_type: normal
+  target: 혜택 > 이벤트
+  seq: 008
+  required_tools:
+  - event_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이벤트 목록 조회 (모니모/4사 특정)

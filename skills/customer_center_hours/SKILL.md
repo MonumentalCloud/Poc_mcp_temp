@@ -1,16 +1,17 @@
 ---
 name: customer_center_hours
 description: '사용자가 고객센터 운영시간이나 지금 상담 가능한지를 물을 때 사용합니다. 예: "고객센터 몇시까지 해?"'
-domain: finance
-category: search
-target: 고객센터(FAQ)
-case_type: normal
-dataset_id: F_SEARCH_017
-seq: '017'
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 고객센터(FAQ)
+  seq: '017'
+  dataset_id: F_SEARCH_017
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 운영시간 확인

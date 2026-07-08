@@ -2,17 +2,18 @@
 name: rate_cut_request_guide
 description: '금리인하요구권 안내를 받은 사용자가 신청 메뉴·경로를 물을 때 사용합니다. 신청 가능 대상 상품과 신청 경로 안내에 적합합니다. 예: "금리인하요구권 신청할수있다는
   문자를 받았는데 어디서 신청해?"'
-domain: finance
-category: life
-target: 융자대출 거래
-case_type: normal
-dataset_id: F_LIFE_170
-seq: '170'
-required_tools:
-- faq_search
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: life
+  sector: finance
+  case_type: normal
+  target: 융자대출 거래
+  seq: '170'
+  dataset_id: F_LIFE_170
+  required_tools:
+  - faq_search
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 금리인하권안내를 받은 고객이 메뉴를 문의하는 경우

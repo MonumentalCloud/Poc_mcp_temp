@@ -1,15 +1,16 @@
 ---
 name: unsupported_competitor_info
 description: 사용자가 삼성금융 외 타사 정보(타 금융사 상품 등)에 대해 질의한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_277
-seq: '277'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '277'
+  dataset_id: NF_UNSUPP_277
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 타사 정보에 대한 질의

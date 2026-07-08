@@ -1,16 +1,17 @@
 ---
 name: calc_investment_return
 description: '사용자가 투자 수익률에 따른 수익금 계산을 원할 때 사용합니다. 수익금과 수익률 구분 설명에 적합합니다. 예: "주식 20% 오르면 얼마 버는거야?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_072
-seq: '072'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '072'
+  dataset_id: F_FIN_072
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 투자 수익률 계산

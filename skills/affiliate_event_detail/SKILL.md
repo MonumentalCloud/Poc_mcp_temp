@@ -2,16 +2,17 @@
 name: affiliate_event_detail
 description: '사용자가 금융4사(생명/화재/카드/증권) 이벤트의 세부 내용이나 혜택 조건을 물을 때 사용합니다. 키워드 기반 이벤트 탐색 후 혜택 안내가 필요한 경우에 적합합니다.
   예: "연금저축보험 첫가입시 얼마 준다고 했는데"'
-domain: non_finance
-category: event
-target: 혜택 > 이벤트
-case_type: normal
-seq: '010'
-required_tools:
-- event_list_inquiry
-- event_detail_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: event
+  sector: non_finance
+  case_type: normal
+  target: 혜택 > 이벤트
+  seq: '010'
+  required_tools:
+  - event_list_inquiry
+  - event_detail_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이벤트 세부 내용 확인 (금융4사 이벤트)

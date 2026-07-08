@@ -1,16 +1,17 @@
 ---
 name: kelly_earning_summary
 description: '사용자가 지난달 등 특정 월에 켈리를 몇 개 모았는지 물을 때 사용합니다. 예: "지난달 켈리 몇 개 모았어?"'
-domain: non_finance
-category: monimo
-target: 켈리 보관함
-case_type: normal
-dataset_id: NF_MONIMO_109
-seq: '109'
-required_tools:
-- kelly_history_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 보관함
+  seq: '109'
+  dataset_id: NF_MONIMO_109
+  required_tools:
+  - kelly_history_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 켈리 적립내역 확인

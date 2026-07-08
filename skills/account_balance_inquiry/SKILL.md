@@ -1,17 +1,18 @@
 ---
 name: account_balance_inquiry
 description: '사용자가 모니모 마이통장(KB국민은행 파킹통장, 삼성증권 CMA 등)의 잔액을 물을 때 사용합니다. 예: "내 통장에 지금 얼마있어?"'
-domain: finance
-category: monimo
-target: 마이통장
-case_type: normal
-dataset_id: F_MONIMO_093
-seq: 093
-required_tools:
-- account_list_inquiry
-- account_balance_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 마이통장
+  seq: 093
+  dataset_id: F_MONIMO_093
+  required_tools:
+  - account_list_inquiry
+  - account_balance_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 통장 보유내용 조회

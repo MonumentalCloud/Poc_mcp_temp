@@ -2,17 +2,18 @@
 name: account_interest_receive
 description: '사용자가 ''오늘 이자받기 해줘''처럼 매일 이자받기 실행을 요청할 때 사용합니다. KB파킹통장/삼성증권 CMA 대상 이자받기 실행에 적합합니다. 예: "오늘
   이자받기 해줘"'
-domain: finance
-category: monimo
-target: 마이통장
-case_type: normal
-dataset_id: F_MONIMO_095
-seq: 095
-required_tools:
-- account_list_inquiry
-- account_interest_receive
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 마이통장
+  seq: 095
+  dataset_id: F_MONIMO_095
+  required_tools:
+  - account_list_inquiry
+  - account_interest_receive
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 통장 이자받기 요청

@@ -1,16 +1,17 @@
 ---
 name: glossary_insurance_term
 description: '사용자가 면책기간 등 보험계약 관련 용어를 물을 때 사용합니다. 정의·필요 이유·상품별 차이 유의사항 설명에 적합합니다. 예: "면책기간이 뭐야?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_055
-seq: '055'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '055'
+  dataset_id: F_FIN_055
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험계약 관련 용어 확인

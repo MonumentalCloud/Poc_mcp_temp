@@ -1,15 +1,16 @@
 ---
 name: ongoing_event_list
 description: '사용자가 현재 진행 중인 이벤트 목록을 물을 때 사용합니다. 이벤트명·기간·혜택 요약 리스트 제공이 필요한 경우에 적합합니다. 예: "지금 진행중인 이벤트 알려줘"'
-domain: non_finance
-category: event
-target: 혜택 > 이벤트
-case_type: normal
-seq: '007'
-required_tools:
-- event_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: event
+  sector: non_finance
+  case_type: normal
+  target: 혜택 > 이벤트
+  seq: '007'
+  required_tools:
+  - event_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이벤트 목록 조회 (진행중 목록)

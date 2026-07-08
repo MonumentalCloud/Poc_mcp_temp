@@ -1,16 +1,17 @@
 ---
 name: walk_index_weather_inquiry
 description: '지역을 설정해 둔 사용자가 현재 날씨·산책지수를 물을 때 사용합니다. 설정 지역 기준 날씨/기온/대기 수준 안내에 적합합니다. 예: "지금 날씨 알려줘"'
-domain: non_finance
-category: monimo
-target: 오늘의 소식
-case_type: normal
-dataset_id: NF_MONIMO_151
-seq: '151'
-required_tools:
-- weather_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 오늘의 소식
+  seq: '151'
+  dataset_id: NF_MONIMO_151
+  required_tools:
+  - weather_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 소식(산책지수) 확인

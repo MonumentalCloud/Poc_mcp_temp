@@ -2,16 +2,17 @@
 name: branch_search
 description: '사용자가 보험 업무 대면 처리를 위해 가까운 지점/플라자를 찾을 때 사용합니다. 위치 확인 후 지점 정보(업무시간·전화번호·주차) 안내에 적합합니다. 예: "보험금
   청구 할건데 가까운 지점을 알려줘"'
-domain: finance
-category: life
-target: 상담기타
-case_type: normal
-dataset_id: F_LIFE_171
-seq: '171'
-required_tools:
-- branch_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: life
+  sector: finance
+  case_type: normal
+  target: 상담기타
+  seq: '171'
+  dataset_id: F_LIFE_171
+  required_tools:
+  - branch_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험 업무 대면 진행을 위한 지점/플라자 정보 확인

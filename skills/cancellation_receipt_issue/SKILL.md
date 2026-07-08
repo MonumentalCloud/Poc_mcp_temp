@@ -1,17 +1,18 @@
 ---
 name: cancellation_receipt_issue
 description: '사용자가 보험 해지영수증·만기영수증 발급을 신청할 때 사용합니다. 발급 가능한 계약 목록 확인 후 발급 진행에 적합합니다. 예: "해지영수증 발급해줘"'
-domain: finance
-category: fire
-target: 해지/만기영수증
-case_type: normal
-dataset_id: F_FIRE_173
-seq: '173'
-required_tools:
-- insurance_contract_inquiry
-- receipt_issue_request
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: fire
+  sector: finance
+  case_type: normal
+  target: 해지/만기영수증
+  seq: '173'
+  dataset_id: F_FIRE_173
+  required_tools:
+  - insurance_contract_inquiry
+  - receipt_issue_request
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 해지영수증 발급

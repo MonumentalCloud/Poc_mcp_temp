@@ -2,16 +2,17 @@
 name: pension_product_search
 description: '사용자가 IRP 등 연금상품을 간편하게 탐색하려 할 때 사용합니다. 모니모 내 가입 가능한 연금상품군과 특징 요약에 적합합니다. 예: "IRP로 연금 가입하고
   싶어"'
-domain: finance
-category: product_info
-target: 상품(연금)
-case_type: normal
-dataset_id: F_INFO_029
-seq: 029
-required_tools:
-- product_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(연금)
+  seq: 029
+  dataset_id: F_INFO_029
+  required_tools:
+  - product_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 간편하게 연금상품 탐색

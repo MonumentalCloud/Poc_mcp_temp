@@ -1,15 +1,16 @@
 ---
 name: unsupported_public_figure
 description: 정치인·연예인 등 공인의 실명이 언급된 질의인 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_279
-seq: '279'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '279'
+  dataset_id: NF_UNSUPP_279
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 공인 실명이 언급된 질의

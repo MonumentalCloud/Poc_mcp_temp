@@ -1,16 +1,17 @@
 ---
 name: stock_price_inquiry
 description: '사용자가 특정 회사의 주가·시세를 물을 때 사용합니다. 예: "SK 하이닉스 주식 얼마야?"'
-domain: finance
-category: product_info
-target: 상품(투자)
-case_type: normal
-dataset_id: F_INFO_048
-seq: 048
-required_tools:
-- stock_item_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(투자)
+  seq: 048
+  dataset_id: F_INFO_048
+  required_tools:
+  - stock_item_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 종목 검색 및 시세/정보 조회

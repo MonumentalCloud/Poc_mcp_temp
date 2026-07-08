@@ -1,16 +1,17 @@
 ---
 name: topic_content_inquiry
 description: '사용자가 여행맛집 등 특정 관심분야 컨텐츠를 보여 달라고 할 때 사용합니다. 예: "여행맛집(관심분야) 컨텐츠 보여줘"'
-domain: non_finance
-category: monimo
-target: 관심소식
-case_type: normal
-dataset_id: NF_MONIMO_115
-seq: '115'
-required_tools:
-- content_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 관심소식
+  seq: '115'
+  dataset_id: NF_MONIMO_115
+  required_tools:
+  - content_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정 관심소식을 보고싶을때

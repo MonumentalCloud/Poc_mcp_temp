@@ -1,17 +1,18 @@
 ---
 name: card_application_guide
 description: '사용자가 카드를 만들려면 어디로 가야 하는지 신청 방법을 물을 때 사용합니다. 예: "카드 만들려면 어디로 가야하나요?"'
-domain: finance
-category: product_info
-target: 상품(카드)
-case_type: normal
-dataset_id: F_INFO_044
-seq: '044'
-required_tools:
-- menu_search
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(카드)
+  seq: '044'
+  dataset_id: F_INFO_044
+  required_tools:
+  - menu_search
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 카드 신청방법에 대한 질의

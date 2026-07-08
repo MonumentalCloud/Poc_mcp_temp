@@ -1,15 +1,16 @@
 ---
 name: unsupported_multimodal_generation
 description: 사용자가 이미지·차트·보이스 등 멀티모달 생성을 요청한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_271
-seq: '271'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '271'
+  dataset_id: NF_UNSUPP_271
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 멀티모달 생성 요청

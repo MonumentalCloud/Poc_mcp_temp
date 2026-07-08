@@ -1,16 +1,17 @@
 ---
 name: walking_mission_achievement
 description: '사용자가 특정 월 기준 걷기 미션(예: 5,000보) 달성 횟수를 물을 때 사용합니다. 예: "2026년 4월 기준으로 나 지금 미션 달성 몇번이나 했어?"'
-domain: non_finance
-category: monimo
-target: 걷기
-case_type: normal
-dataset_id: NF_MONIMO_131
-seq: '131'
-required_tools:
-- walking_mission_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 걷기
+  seq: '131'
+  dataset_id: NF_MONIMO_131
+  required_tools:
+  - walking_mission_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 걸음수 조회

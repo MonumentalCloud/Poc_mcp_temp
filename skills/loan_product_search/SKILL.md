@@ -1,16 +1,17 @@
 ---
 name: loan_product_search
 description: '사용자가 대출상품 목록을 간편하게 탐색하려 할 때 사용합니다. 모니모 내 가입 가능한 대출상품 리스트와 요약 안내에 적합합니다. 예: "대출상품 알려줘"'
-domain: finance
-category: product_info
-target: 상품(대출)
-case_type: normal
-dataset_id: F_INFO_033
-seq: '033'
-required_tools:
-- product_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(대출)
+  seq: '033'
+  dataset_id: F_INFO_033
+  required_tools:
+  - product_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 대출상품 탐색

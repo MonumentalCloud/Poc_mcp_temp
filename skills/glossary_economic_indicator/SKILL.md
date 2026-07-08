@@ -1,16 +1,17 @@
 ---
 name: glossary_economic_indicator
 description: '사용자가 기준금리와 대출이자의 관계 등 금융지표·경제용어를 물을 때 사용합니다. 예: "기준금리가 오르면 대출이자가 올라?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_062
-seq: '062'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '062'
+  dataset_id: F_FIN_062
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 금융지표.경제용어 설명

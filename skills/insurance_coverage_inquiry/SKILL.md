@@ -1,17 +1,18 @@
 ---
 name: insurance_coverage_inquiry
 description: '사용자가 암보험 등 특정 보험상품의 보장내용을 확인하려 할 때 사용합니다. 생명/화재 보험 리스트와 주요 보장내용 요약 안내에 적합합니다. 예: "암보험 알려줘"'
-domain: finance
-category: product_info
-target: 상품(보험)
-case_type: normal
-dataset_id: F_INFO_022
-seq: '022'
-required_tools:
-- product_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(보험)
+  seq: '022'
+  dataset_id: F_INFO_022
+  required_tools:
+  - product_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정보험상품 보장내용확인

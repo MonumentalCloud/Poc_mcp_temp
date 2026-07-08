@@ -1,16 +1,17 @@
 ---
 name: glossary_investment_term
 description: '사용자가 ETF와 펀드의 차이 등 투자·펀드 용어를 물을 때 사용합니다. 예: "ETF랑 펀드가 뭐가 달라?"'
-domain: finance
-category: financial_info
-target: 금융 용어 사전
-case_type: normal
-dataset_id: F_FIN_057
-seq: '057'
-required_tools:
-- glossary_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융 용어 사전
+  seq: '057'
+  dataset_id: F_FIN_057
+  required_tools:
+  - glossary_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 투자 펀드 용어 설명

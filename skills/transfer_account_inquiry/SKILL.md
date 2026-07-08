@@ -1,16 +1,17 @@
 ---
 name: transfer_account_inquiry
 description: '사용자가 특정인에게 송금하려 할 때 최근 송금 이력·즐겨찾기 기반 송금 가능 계좌 목록을 확인하는 경우 사용합니다. 예: "○○○에게 송금필요"'
-domain: finance
-category: monimo
-target: 송금
-case_type: normal
-dataset_id: F_MONIMO_154
-seq: '154'
-required_tools:
-- transfer_account_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 송금
+  seq: '154'
+  dataset_id: F_MONIMO_154
+  required_tools:
+  - transfer_account_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 최근 송금 가능한 계좌목록 확인

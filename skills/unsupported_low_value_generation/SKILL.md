@@ -1,15 +1,16 @@
 ---
 name: unsupported_low_value_generation
 description: 사용자가 '아무 질문이나 해줘' 등 의미 없는 텍스트 생성을 요청한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_275
-seq: '275'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '275'
+  dataset_id: NF_UNSUPP_275
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # Low-value 텍스트 생성 요청

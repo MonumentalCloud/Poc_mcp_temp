@@ -1,16 +1,17 @@
 ---
 name: monthly_spending_inquiry
 description: '사용자가 특정 월의 소비금액 총합과 결제수단별 내역을 물을 때 사용합니다. 예: "나 저번 5월에 얼마나 썼어?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_081
-seq: 081
-required_tools:
-- spending_summary_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 081
+  dataset_id: F_MONIMO_081
+  required_tools:
+  - spending_summary_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정월 분석내용 (사용 금액)

@@ -1,17 +1,18 @@
 ---
 name: monimoney_policy_guide
 description: '사용자가 모니머니 사용 시 한도·조건·유의사항 등을 물을 때 사용합니다. 예: "모니머니 사용關 주의할점이 따로 있어?"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_121
-seq: '121'
-required_tools:
-- faq_search
-- monimoney_info_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '121'
+  dataset_id: F_MONIMO_121
+  required_tools:
+  - faq_search
+  - monimoney_info_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이용방법/정책 질의

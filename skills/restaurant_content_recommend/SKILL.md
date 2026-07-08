@@ -2,16 +2,17 @@
 name: restaurant_content_recommend
 description: '사용자가 맛집 추천 등 일상생활 질의를 했고, 대응 가능한 관심소식 콘텐츠가 있을 때 사용합니다. 여행맛집 카테고리 최근 게시물 요약 안내에 적합합니다. 예:
   "맛집 추천해줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_264
-seq: '264'
-required_tools:
-- content_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '264'
+  dataset_id: NF_CASUAL_264
+  required_tools:
+  - content_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 일상생활 관련 질의

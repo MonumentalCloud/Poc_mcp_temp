@@ -1,17 +1,18 @@
 ---
 name: interest_topic_update
 description: '사용자가 관심분야를 추가·변경하고 싶을 때 사용합니다. 관심분야 설정화면 이동 안내에 적합합니다. 예: "관심분야 추가하고 싶어"'
-domain: non_finance
-category: monimo
-target: 관심소식
-case_type: normal
-dataset_id: NF_MONIMO_118
-seq: '118'
-required_tools:
-- interest_topic_inquiry
-- interest_topic_update
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 관심소식
+  seq: '118'
+  dataset_id: NF_MONIMO_118
+  required_tools:
+  - interest_topic_inquiry
+  - interest_topic_update
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # (사용자 지정) 관심분야 목록 안내

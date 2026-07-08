@@ -1,17 +1,18 @@
 ---
 name: customer_center_menu_guide
 description: '사용자가 고객센터 메뉴 위치를 찾을 때 사용합니다. 고객센터 이동 경로와 FAQ/채팅상담/전화상담의 차이 설명이 필요한 경우에 적합합니다. 예: "고객센터 어디야?"'
-domain: finance
-category: search
-target: 메뉴
-case_type: normal
-dataset_id: F_SEARCH_004
-seq: '004'
-required_tools:
-- menu_search
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 메뉴
+  seq: '004'
+  dataset_id: F_SEARCH_004
+  required_tools:
+  - menu_search
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 고객센터 메뉴 안내

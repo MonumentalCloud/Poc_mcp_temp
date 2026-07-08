@@ -1,17 +1,18 @@
 ---
 name: tojeong_fortune_inquiry
 description: '사용자가 신년 토정비결(신토정비결)을 요청할 때 사용합니다. 예: "26년 토정비결 봐줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_259
-seq: '259'
-required_tools:
-- saju_profile_inquiry
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '259'
+  dataset_id: NF_CASUAL_259
+  required_tools:
+  - saju_profile_inquiry
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 사주(신토정비결) 질의

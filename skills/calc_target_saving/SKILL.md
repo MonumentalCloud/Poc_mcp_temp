@@ -2,16 +2,17 @@
 name: calc_target_saving
 description: '사용자가 목표 금액을 모으기 위한 월 저축액 계산을 원할 때 사용합니다. 목표금액·기간·예상 수익률 기반 계산에 적합합니다. 예: "5년 안에 3천만원 모으려면
   얼마씩 저축해야해?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_074
-seq: '074'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '074'
+  dataset_id: F_FIN_074
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 목표 자산 계산

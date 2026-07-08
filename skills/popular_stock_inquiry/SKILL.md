@@ -1,16 +1,17 @@
 ---
 name: popular_stock_inquiry
 description: '사용자가 지금 인기 있는 주식 종목을 물을 때 사용합니다. 국내/해외 인기 Top5 안내에 적합합니다. 예: "지금 인기있는 주식종목을 알려줘"'
-domain: finance
-category: product_info
-target: 상품(투자)
-case_type: normal
-dataset_id: F_INFO_049
-seq: 049
-required_tools:
-- stock_ranking_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(투자)
+  seq: 049
+  dataset_id: F_INFO_049
+  required_tools:
+  - stock_ranking_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 종목 검색 및 시세/정보 조회

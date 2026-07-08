@@ -1,17 +1,18 @@
 ---
 name: bingo_guide
 description: '사용자가 빙고게임이 무엇인지 이용방법·정책을 물을 때 사용합니다. 미션 개수·리워드·오픈 기간 안내에 적합합니다. 예: "빙고가 뭐야?"'
-domain: non_finance
-category: monimo
-target: 빙고게임
-case_type: normal
-dataset_id: NF_MONIMO_133
-seq: '133'
-required_tools:
-- faq_search
-- bingo_mission_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 빙고게임
+  seq: '133'
+  dataset_id: NF_MONIMO_133
+  required_tools:
+  - faq_search
+  - bingo_mission_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 빙고게임 이용방법/정책 질의

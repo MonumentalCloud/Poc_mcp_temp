@@ -1,17 +1,18 @@
 ---
 name: monischool_quiz_hint
 description: '사용자가 모니스쿨 특정 교시 문제의 힌트를 요청할 때 사용합니다. 예: "N교시 답이 뭔지 모르겠는데 힌트 알려줘"'
-domain: non_finance
-category: monimo
-target: 모니스쿨
-case_type: normal
-dataset_id: NF_MONIMO_142
-seq: '142'
-required_tools:
-- monischool_quiz_inquiry
-- monischool_hint_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 모니스쿨
+  seq: '142'
+  dataset_id: NF_MONIMO_142
+  required_tools:
+  - monischool_quiz_inquiry
+  - monischool_hint_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 응시 가능한 모니스쿨의 문제 확인 (힌트질문)

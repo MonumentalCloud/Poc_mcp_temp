@@ -1,17 +1,18 @@
 ---
 name: card_product_benefit_inquiry
 description: '사용자가 특정 카드가 어떤 상품인지, 핵심 혜택이 무엇인지 물을 때 사용합니다. 예: "모니모 카드 혜택이 뭐야?"'
-domain: finance
-category: product_info
-target: 상품(카드)
-case_type: normal
-dataset_id: F_INFO_038
-seq: 038
-required_tools:
-- product_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(카드)
+  seq: 038
+  dataset_id: F_INFO_038
+  required_tools:
+  - product_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상품 일반 질문

@@ -1,16 +1,17 @@
 ---
 name: sector_stock_search
 description: '사용자가 제약 등 특정 업종·섹터의 투자할 만한 종목을 찾을 때 사용합니다. 예: "제약쪽에 투자할만한 종목이 있어?"'
-domain: finance
-category: product_info
-target: 상품(투자)
-case_type: normal
-dataset_id: F_INFO_051
-seq: '051'
-required_tools:
-- stock_ranking_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(투자)
+  seq: '051'
+  dataset_id: F_INFO_051
+  required_tools:
+  - stock_ranking_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 종목 검색 및 시세/정보 조회

@@ -2,17 +2,18 @@
 name: insurance_claim_submit
 description: '사용자가 보험금 청구 실행을 요청할 때 사용합니다. 모니모에서 직접 청구는 미지원이므로 청구 가능한 회사(생명/화재) 화면으로 이동시키는 경우에 적합합니다.
   예: "보험금 청구해줘"'
-domain: finance
-category: samsung_financial
-target: 보험금 청구 현황
-case_type: normal
-dataset_id: F_SFN_165
-seq: '165'
-required_tools:
-- insurance_contract_inquiry
-- insurance_claim_submit
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: samsung_financial
+  sector: finance
+  case_type: normal
+  target: 보험금 청구 현황
+  seq: '165'
+  dataset_id: F_SFN_165
+  required_tools:
+  - insurance_contract_inquiry
+  - insurance_claim_submit
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험금 청구 요청

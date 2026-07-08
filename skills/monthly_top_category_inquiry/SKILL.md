@@ -2,16 +2,17 @@
 name: monthly_top_category_inquiry
 description: '사용자가 특정 월에 어느 업종에서 가장 많이 썼는지 물을 때 사용합니다. 카테고리별 소비 비중 분석에 적합합니다. 예: "26년 1월에 어느 업종에서 제일 많이
   썼어?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_082
-seq: 082
-required_tools:
-- spending_category_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 082
+  dataset_id: F_MONIMO_082
+  required_tools:
+  - spending_category_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정월 분석내용 확인 (사용 업종)

@@ -2,17 +2,18 @@
 name: kelly_conversion_rate_inquiry
 description: '사용자가 켈리를 모니머니로 바꾸면 얼마인지, 적립 비율·레벨을 물을 때 사용합니다. 회원등급 산정 후 전환 비율 안내에 적합합니다. 예: "지금 켈리 모니머니로
   바꾸면 얼마야?"'
-domain: non_finance
-category: monimo
-target: 켈리 상점
-case_type: normal
-dataset_id: NF_MONIMO_101
-seq: '101'
-required_tools:
-- kelly_balance_inquiry
-- kelly_level_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 상점
+  seq: '101'
+  dataset_id: NF_MONIMO_101
+  required_tools:
+  - kelly_balance_inquiry
+  - kelly_level_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 적립 비율/레벨 확인

@@ -1,16 +1,17 @@
 ---
 name: transfer_history_inquiry
 description: '사용자가 지난주 등 특정 기간의 송금내역(전체/보낸/받은)을 물을 때 사용합니다. 예: "지난주 내가 송금한 내역을 보여줘"'
-domain: finance
-category: monimo
-target: 송금
-case_type: normal
-dataset_id: F_MONIMO_155
-seq: '155'
-required_tools:
-- transfer_history_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 송금
+  seq: '155'
+  dataset_id: F_MONIMO_155
+  required_tools:
+  - transfer_history_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 송금내역 확인 (계좌 기준)

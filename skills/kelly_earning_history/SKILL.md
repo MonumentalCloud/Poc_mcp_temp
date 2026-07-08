@@ -1,16 +1,17 @@
 ---
 name: kelly_earning_history
 description: '사용자가 특정 월의 켈리 적립내역(적립일자·이력·일반/스페셜 구분)을 물을 때 사용합니다. 예: "이번달 켈리 모은 내역 알려줘"'
-domain: non_finance
-category: monimo
-target: 켈리 보관함
-case_type: normal
-dataset_id: NF_MONIMO_111
-seq: '111'
-required_tools:
-- kelly_history_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 보관함
+  seq: '111'
+  dataset_id: NF_MONIMO_111
+  required_tools:
+  - kelly_history_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 질의한 기준 켈리 적립내역 확인

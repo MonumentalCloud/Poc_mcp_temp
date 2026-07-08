@@ -1,16 +1,17 @@
 ---
 name: closing_brief_inquiry
 description: '사용자가 오늘의 증권 마감브리핑을 요청할 때 사용합니다. 나스닥/S&P 등 지수 등락 요약에 적합합니다. 예: "오늘의 마감브리핑 알려줘"'
-domain: non_finance
-category: monimo
-target: 오늘의 소식
-case_type: normal
-dataset_id: NF_MONIMO_150
-seq: '150'
-required_tools:
-- daily_news_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 오늘의 소식
+  seq: '150'
+  dataset_id: NF_MONIMO_150
+  required_tools:
+  - daily_news_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 소식(마감브리핑) 확인

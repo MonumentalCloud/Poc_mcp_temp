@@ -653,20 +653,24 @@ def build_skill_md(row: dict, entry: dict) -> str:
     tools = entry["tools"]
     title = (row["intent"] or entry["name"]).strip()
 
-    fm = {
-        "name": entry["name"],
-        "description": build_description(row, entry["desc"]),
-        "domain": DOMAIN_SLUG[row["domain"]],
-        "category": CATEGORY_SLUG[row["category"]],
-        "target": (row.get("target") or "").strip() or None,
+    # GenOS DocumentProcessor 규약: name/description 은 top-level,
+    # 필터·라우팅용 커스텀 키는 metadata 하위(dict)로 — ingestion 시 top-level 로 flatten 됨
+    meta = {
+        "domain": CATEGORY_SLUG[row["category"]],   # card/life/fire/securities/monimo/…
+        "sector": DOMAIN_SLUG[row["domain"]],        # finance | non_finance
         "case_type": CASE_TYPE_SLUG[row["type"]],
-        "dataset_id": row.get("datasetID") or None,
+        "target": (row.get("target") or "").strip() or None,
         "seq": row["seq"],
+        "dataset_id": row.get("datasetID") or None,
         "required_tools": tools,
         "hooks": "scripts/hook.py",
         "version": "1.0.0",
     }
-    fm = {k: v for k, v in fm.items() if v is not None}
+    fm = {
+        "name": entry["name"],
+        "description": build_description(row, entry["desc"]),
+        "metadata": {k: v for k, v in meta.items() if v is not None},
+    }
     fm_yaml = yaml.safe_dump(fm, allow_unicode=True, sort_keys=False, width=100).strip()
 
     steps = build_steps(row, cfg, tools)

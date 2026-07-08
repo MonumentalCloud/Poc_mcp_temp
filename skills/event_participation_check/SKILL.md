@@ -1,16 +1,17 @@
 ---
 name: event_participation_check
 description: '사용자가 특정 이벤트에 본인이 응모/참여했는지 물을 때 사용합니다. 예: "15만원 캐시백 이벤트 내가 응모했었나?"'
-domain: non_finance
-category: event
-target: 혜택 > 이벤트
-case_type: normal
-seq: '011'
-required_tools:
-- event_list_inquiry
-- event_participation_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: event
+  sector: non_finance
+  case_type: normal
+  target: 혜택 > 이벤트
+  seq: '011'
+  required_tools:
+  - event_list_inquiry
+  - event_participation_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이벤트 참여/응모여부 확인

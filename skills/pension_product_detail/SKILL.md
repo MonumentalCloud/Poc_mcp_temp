@@ -1,17 +1,18 @@
 ---
 name: pension_product_detail
 description: '사용자가 특정 연금상품(예: 증권 연금저축)의 정보를 확인하려 할 때 사용합니다. 예: "증권에 연금저축 가입하고싶어"'
-domain: finance
-category: product_info
-target: 상품(연금)
-case_type: normal
-dataset_id: F_INFO_030
-seq: '030'
-required_tools:
-- product_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(연금)
+  seq: '030'
+  dataset_id: F_INFO_030
+  required_tools:
+  - product_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정 연금상품 정보 확인

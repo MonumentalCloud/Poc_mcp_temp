@@ -1,16 +1,17 @@
 ---
 name: tarot_inquiry
 description: '사용자가 오늘의 타로카드·타로점을 요청할 때 사용합니다. 타로 서비스 설명과 화면 바로가기 제공에 적합합니다. 예: "오늘의 타로점 봐줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_258
-seq: '258'
-required_tools:
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '258'
+  dataset_id: NF_CASUAL_258
+  required_tools:
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 타로카드 질의

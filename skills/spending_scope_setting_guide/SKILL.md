@@ -2,15 +2,16 @@
 name: spending_scope_setting_guide
 description: '사용자가 소비금액 집계에 계좌이체·포인트 사용내역을 포함/제외하는 방법을 물을 때 사용합니다. 토글 설정 방법 안내에 적합합니다. 예: "계좌 이체내역이나 포인트도
   켜는 것도 포함해서 보고 싶어"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-seq: 091
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 091
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 소비금액 포함 여부

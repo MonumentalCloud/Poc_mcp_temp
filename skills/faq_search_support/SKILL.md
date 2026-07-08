@@ -2,16 +2,17 @@
 name: faq_search_support
 description: '사용자가 특정 업무·서비스 관련 FAQ를 찾아 달라고 할 때 사용합니다. 관련 FAQ 카테고리 안내와 검색 키워드 추천에 적합합니다. 예: "보험금 청구 관련
   FAQ 찾아줘"'
-domain: finance
-category: search
-target: 고객센터(FAQ)
-case_type: normal
-dataset_id: F_SEARCH_019
-seq: 019
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 고객센터(FAQ)
+  seq: 019
+  dataset_id: F_SEARCH_019
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # FAQ 검색 지원

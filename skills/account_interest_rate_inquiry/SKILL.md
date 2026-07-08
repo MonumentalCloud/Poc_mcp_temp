@@ -1,17 +1,18 @@
 ---
 name: account_interest_rate_inquiry
 description: '사용자가 현재 본인 통장의 이자율(챌린지 달성에 따른 우대금리 포함)을 물을 때 사용합니다. 예: "지금 내 통장 이자율이 어떻게 돼?"'
-domain: finance
-category: monimo
-target: 마이통장
-case_type: normal
-dataset_id: F_MONIMO_098
-seq: 098
-required_tools:
-- account_list_inquiry
-- account_interest_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 마이통장
+  seq: 098
+  dataset_id: F_MONIMO_098
+  required_tools:
+  - account_list_inquiry
+  - account_interest_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 챌린지 달성여부에 따른 이자 확인

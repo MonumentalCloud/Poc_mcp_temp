@@ -1,16 +1,17 @@
 ---
 name: daily_payment_history
 description: '사용자가 특정 일자의 결제이력·명세서 기준 소비금액을 물을 때 사용합니다. 예: "지난 주효일 얼마나 썼는지 알려줘"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_087
-seq: 087
-required_tools:
-- payment_history_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 087
+  dataset_id: F_MONIMO_087
+  required_tools:
+  - payment_history_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정월 기준 소비이력 확인 (결제이력/명세서)

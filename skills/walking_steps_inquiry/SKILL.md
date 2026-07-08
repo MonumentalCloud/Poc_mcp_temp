@@ -1,16 +1,17 @@
 ---
 name: walking_steps_inquiry
 description: '사용자가 오늘 지금까지 몇 보 걸었는지 걸음수를 물을 때 사용합니다. 예: "나 지금 몇보걸었어?"'
-domain: non_finance
-category: monimo
-target: 걷기
-case_type: normal
-dataset_id: NF_MONIMO_130
-seq: '130'
-required_tools:
-- walking_steps_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 걷기
+  seq: '130'
+  dataset_id: NF_MONIMO_130
+  required_tools:
+  - walking_steps_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 걸음수 조회

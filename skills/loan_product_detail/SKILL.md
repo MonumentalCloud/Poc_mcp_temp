@@ -1,17 +1,18 @@
 ---
 name: loan_product_detail
 description: '사용자가 삼성생명 보험계약대출 등 특정 대출상품 정보를 확인하려 할 때 사용합니다. 예: "삼성생명 보험계약대출 알려줘"'
-domain: finance
-category: product_info
-target: 상품(대출)
-case_type: normal
-dataset_id: F_INFO_035
-seq: '035'
-required_tools:
-- product_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(대출)
+  seq: '035'
+  dataset_id: F_INFO_035
+  required_tools:
+  - product_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 특정 대출상품 탐색

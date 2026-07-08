@@ -2,17 +2,18 @@
 name: budget_status_inquiry
 description: '사용자가 설정한 한 달 예산 대비 현재 소비 현황을 물을 때 사용합니다. 예산·소비 총합·초과/잔여 금액 안내에 적합합니다. 예: "지금 내가 설정한 한달 예산에서
   얼마나 벗어났어?"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_079
-seq: 079
-required_tools:
-- budget_inquiry
-- spending_summary_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 079
+  dataset_id: F_MONIMO_079
+  required_tools:
+  - budget_inquiry
+  - spending_summary_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 한달 예산 설정 확인

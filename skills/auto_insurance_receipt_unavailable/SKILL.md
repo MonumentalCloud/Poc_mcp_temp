@@ -1,16 +1,17 @@
 ---
 name: auto_insurance_receipt_unavailable
 description: '사용자가 자동차보험 해지영수증 발급을 신청할 때 사용합니다. 자동차보험은 해지영수증 발급이 불가능하다는 안내에 적합합니다. 예: "자동차보험 해지영수증 발급해줘"'
-domain: finance
-category: fire
-target: 해지/만기영수증
-case_type: error
-dataset_id: F_FIRE_174
-seq: '174'
-required_tools:
-- insurance_contract_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: fire
+  sector: finance
+  case_type: error
+  target: 해지/만기영수증
+  seq: '174'
+  dataset_id: F_FIRE_174
+  required_tools:
+  - insurance_contract_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 해지영수증 발급

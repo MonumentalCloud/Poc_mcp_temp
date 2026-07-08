@@ -1,16 +1,17 @@
 ---
 name: random_food_recommend
 description: '사용자가 오늘 뭐 먹을지 메뉴 추천을 요청할 때 사용합니다. ''오늘뭐먹지'' 화면 이동 배너 제공에 적합합니다. 예: "오늘 뭐먹으면 좋을까"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_085
-seq: 085
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 085
+  dataset_id: F_MONIMO_085
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 랜덤 메뉴 추천

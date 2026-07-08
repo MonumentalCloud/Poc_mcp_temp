@@ -1,16 +1,17 @@
 ---
 name: kelly_investment_inquiry
 description: '켈리투자 이용 중인 사용자가 지금까지의 누계 켈리 투자금액을 물을 때 사용합니다. 예: "오늘 켈리투자 신청했는데, 내가 지금까지 켈리투자로..."'
-domain: non_finance
-category: monimo
-target: 켈리 보관함
-case_type: normal
-dataset_id: NF_MONIMO_110
-seq: '110'
-required_tools:
-- kelly_investment_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 보관함
+  seq: '110'
+  dataset_id: NF_MONIMO_110
+  required_tools:
+  - kelly_investment_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 켈리 투자금액 확인

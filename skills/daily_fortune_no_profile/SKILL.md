@@ -1,18 +1,19 @@
 ---
 name: daily_fortune_no_profile
 description: '사주정보를 입력하지 않은 사용자가 오늘의 운세를 물을 때 사용합니다. 사주정보 입력 유도 후 운세 안내에 적합합니다. 예: "오늘의 운세 알려줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_254
-seq: '254'
-required_tools:
-- saju_profile_inquiry
-- saju_profile_register
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '254'
+  dataset_id: NF_CASUAL_254
+  required_tools:
+  - saju_profile_inquiry
+  - saju_profile_register
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 운세 질의

@@ -1,15 +1,16 @@
 ---
 name: fallback_investment_advice
 description: 사용자가 어떤 맥락에서든 '살까/팔까' 등 투자 의사결정을 질의한 경우 사용합니다. 의사결정 대신 객관적 정보 제공으로 대체 안내합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: fallback
-dataset_id: NF_UNSUPP_280
-seq: '280'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: fallback
+  target: 미지원 질문
+  seq: '280'
+  dataset_id: NF_UNSUPP_280
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 투자 의사결정 질의

@@ -1,16 +1,17 @@
 ---
 name: zodiac_fortune_inquiry
 description: '사용자가 양띠 등 특정 띠의 오늘의 운세를 물을 때 사용합니다. 예: "양띠의 오늘의 운세 알려줘"'
-domain: non_finance
-category: casual
-target: 생활 컨텐츠
-case_type: normal
-dataset_id: NF_CASUAL_257
-seq: '257'
-required_tools:
-- fortune_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: casual
+  sector: non_finance
+  case_type: normal
+  target: 생활 컨텐츠
+  seq: '257'
+  dataset_id: NF_CASUAL_257
+  required_tools:
+  - fortune_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 띠별 운세 질의

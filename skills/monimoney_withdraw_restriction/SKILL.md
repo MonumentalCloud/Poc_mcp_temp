@@ -2,17 +2,18 @@
 name: monimoney_withdraw_restriction
 description: '사용자가 모니머니 출금이 안 되는 사유를 물을 때 사용합니다. 출금 요청 건 확인 후 불가 사유 안내에 적합합니다. 예: "모니머니 출금하려고 하는데 출금이
   안 되는 사유가 뭐야?"'
-domain: finance
-category: monimo
-target: 모니머니
-case_type: normal
-dataset_id: F_MONIMO_128
-seq: '128'
-required_tools:
-- monimoney_history_inquiry
-- monimoney_restriction_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 모니머니
+  seq: '128'
+  dataset_id: F_MONIMO_128
+  required_tools:
+  - monimoney_history_inquiry
+  - monimoney_restriction_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니머니 출금 불가사유 확인

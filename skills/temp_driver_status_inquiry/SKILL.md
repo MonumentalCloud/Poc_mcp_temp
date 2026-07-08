@@ -1,16 +1,17 @@
 ---
 name: temp_driver_status_inquiry
 description: '사용자가 임시운전자 특약을 가입해 뒀는지 기가입 내역을 확인하려 할 때 사용합니다. 예: "나 임시운전자 특약 해놨나 없나?"'
-domain: finance
-category: fire
-target: 임시운전자
-case_type: normal
-dataset_id: F_FIRE_204
-seq: '204'
-required_tools:
-- temp_driver_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: fire
+  sector: finance
+  case_type: normal
+  target: 임시운전자
+  seq: '204'
+  dataset_id: F_FIRE_204
+  required_tools:
+  - temp_driver_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 임시운전자 특약 가입내역 확인요청

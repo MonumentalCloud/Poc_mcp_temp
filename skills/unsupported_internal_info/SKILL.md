@@ -1,15 +1,16 @@
 ---
 name: unsupported_internal_info
 description: 사용자가 삼성금융 4사의 내부 정보(조직/인사/시스템/내부업무)를 질의한 경우 사용합니다.
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_281
-seq: '281'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '281'
+  dataset_id: NF_UNSUPP_281
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 삼성금융 4사 내부 정보에 대한 질의

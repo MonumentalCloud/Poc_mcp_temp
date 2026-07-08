@@ -1,17 +1,18 @@
 ---
 name: budget_update_request
 description: '사용자가 설정된 한 달 예산 금액을 변경하려 할 때 사용합니다. 예: "나 원래 한달예산 천만원이라고 했는데 500만원으로 줄일래"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_080
-seq: 080
-required_tools:
-- budget_inquiry
-- budget_update
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 080
+  dataset_id: F_MONIMO_080
+  required_tools:
+  - budget_inquiry
+  - budget_update
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 한달 예산 변경 요청

@@ -1,17 +1,18 @@
 ---
 name: card_issuance_eligibility
 description: '사용자가 가족카드 등 카드 발급 가능 여부를 물을 때 사용합니다. 예: "모니모 카드 가족카드 발급받고싶어"'
-domain: finance
-category: product_info
-target: 상품(카드)
-case_type: normal
-dataset_id: F_INFO_043
-seq: '043'
-required_tools:
-- faq_search
-- product_detail
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(카드)
+  seq: '043'
+  dataset_id: F_INFO_043
+  required_tools:
+  - faq_search
+  - product_detail
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 상품 발급 가능여부 질의

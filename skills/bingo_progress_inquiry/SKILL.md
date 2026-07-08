@@ -2,16 +2,17 @@
 name: bingo_progress_inquiry
 description: '사용자가 빙고 완성까지 몇 개 남았는지, 보너스 스티커 보유 여부 등 참여 현황을 물을 때 사용합니다. 예: "나 빙고 완성하려면 몇 개 모자라?  /  나
   빙고 보너스스티커 있나?"'
-domain: non_finance
-category: monimo
-target: 빙고게임
-case_type: normal
-dataset_id: NF_MONIMO_135
-seq: '135'
-required_tools:
-- bingo_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 빙고게임
+  seq: '135'
+  dataset_id: NF_MONIMO_135
+  required_tools:
+  - bingo_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 빙고게임 참여 현황 파악 요청 (빙고 달성여부/미달성여부)

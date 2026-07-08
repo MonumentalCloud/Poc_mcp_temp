@@ -2,16 +2,17 @@
 name: monthly_mission_list
 description: '사용자가 지금 참여할 수 있는 이달의 미션 목록을 물을 때 사용합니다. 미달성 미션 안내에 적합합니다. 예: "내가 지금 참여할 수 있는 이달의 미션은 뭐가
   있어?"'
-domain: non_finance
-category: monimo
-target: 이달의 미션
-case_type: normal
-dataset_id: NF_MONIMO_158
-seq: '158'
-required_tools:
-- monthly_mission_list_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 이달의 미션
+  seq: '158'
+  dataset_id: NF_MONIMO_158
+  required_tools:
+  - monthly_mission_list_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이달의 미션 서비스 탐색

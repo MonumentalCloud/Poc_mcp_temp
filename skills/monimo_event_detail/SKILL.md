@@ -1,16 +1,17 @@
 ---
 name: monimo_event_detail
 description: '사용자가 진행 중인 모니모 이벤트의 세부 내용(발표일, 응모 방법, 경품 등)을 물을 때 사용합니다. 예: "에버랜드 이용권 응모이벤트 발표일 언제야?"'
-domain: non_finance
-category: event
-target: 혜택 > 이벤트
-case_type: normal
-seq: 009
-required_tools:
-- event_list_inquiry
-- event_detail_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: event
+  sector: non_finance
+  case_type: normal
+  target: 혜택 > 이벤트
+  seq: 009
+  required_tools:
+  - event_list_inquiry
+  - event_detail_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 이벤트 세부 내용 확인 (모니모)

@@ -1,16 +1,17 @@
 ---
 name: stock_volume_ranking
 description: '사용자가 거래량·거래대금이 많은 종목 순위를 물을 때 사용합니다. 예: "지금 어떤 종목이 제일 많이 거래돼?"'
-domain: finance
-category: product_info
-target: 상품(투자)
-case_type: normal
-dataset_id: F_INFO_050
-seq: '050'
-required_tools:
-- stock_ranking_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: product_info
+  sector: finance
+  case_type: normal
+  target: 상품(투자)
+  seq: '050'
+  dataset_id: F_INFO_050
+  required_tools:
+  - stock_ranking_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 종목 검색 및 시세/정보 조회

@@ -1,16 +1,17 @@
 ---
 name: domestic_index_inquiry
 description: '사용자가 ''오늘 국장 어때?''처럼 국내 주요지수를 물을 때 사용합니다. 지수 등락, 등락 종목 수, 대표 종목 안내에 적합합니다. 예: "오늘 국장 어때?"'
-domain: finance
-category: securities
-target: 주요 지수 조회
-case_type: normal
-dataset_id: F_STCK_217
-seq: '217'
-required_tools:
-- market_index_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 주요 지수 조회
+  seq: '217'
+  dataset_id: F_STCK_217
+  required_tools:
+  - market_index_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 국내 주요지수에 대한 질의

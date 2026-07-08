@@ -1,16 +1,17 @@
 ---
 name: temp_driver_contract_check
 description: '사용자가 임시운전자 특약 가입을 위해 기존 가입 계약을 확인하려 할 때 사용합니다. 대상 계약 확인에 적합합니다. 예: "임시운전자 특약 계약알래"'
-domain: finance
-category: fire
-target: 임시운전자
-case_type: normal
-dataset_id: F_FIRE_202
-seq: '202'
-required_tools:
-- insurance_contract_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: fire
+  sector: finance
+  case_type: normal
+  target: 임시운전자
+  seq: '202'
+  dataset_id: F_FIRE_202
+  required_tools:
+  - insurance_contract_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 임시운전자 특약 가입

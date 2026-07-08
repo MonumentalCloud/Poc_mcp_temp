@@ -1,16 +1,17 @@
 ---
 name: calc_dsr
 description: '사용자가 본인 DSR이 얼마나 나오는지 계산을 원할 때 사용합니다. 연소득과 기존 대출 원리금 기반 계산에 적합합니다. 예: "내 DSR 얼마나 나와?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_067
-seq: '067'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '067'
+  dataset_id: F_FIN_067
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # DSR 계산

@@ -1,16 +1,17 @@
 ---
 name: insurance_loan_interest_date
 description: '사용자가 보험계약대출의 이자 상환일이 언제인지 물을 때 사용합니다. 대출 잔액과 상환 일자 안내에 적합합니다. 예: "내 보험계약대출 이자상환일이 언제야"'
-domain: finance
-category: life
-target: 융자대출 거래
-case_type: normal
-dataset_id: F_LIFE_169
-seq: '169'
-required_tools:
-- insurance_loan_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: life
+  sector: finance
+  case_type: normal
+  target: 융자대출 거래
+  seq: '169'
+  dataset_id: F_LIFE_169
+  required_tools:
+  - insurance_loan_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 보험 대출이자 상환일자를 문의하는 경우

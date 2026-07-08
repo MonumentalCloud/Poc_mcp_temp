@@ -2,16 +2,17 @@
 name: menu_location_search
 description: '사용자가 모니모 앱의 특정 기능·메뉴가 어디 있는지 찾을 때 사용합니다. 메뉴 위치와 앱 내 이동 경로 안내가 필요한 모든 질의에 적합합니다. 예: "갤러 보관함
   어디 있어?"'
-domain: finance
-category: search
-target: 메뉴
-case_type: normal
-dataset_id: F_SEARCH_001
-seq: '001'
-required_tools:
-- menu_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: search
+  sector: finance
+  case_type: normal
+  target: 메뉴
+  seq: '001'
+  dataset_id: F_SEARCH_001
+  required_tools:
+  - menu_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 메뉴 위치 탐색

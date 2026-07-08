@@ -1,16 +1,17 @@
 ---
 name: kelly_challenge_status
 description: '사용자가 현재 참여 중인 챌린지의 달성 현황(예: 걷기 챌린지 달성일수)을 물을 때 사용합니다. 예: "걷기 챌린지 달성일수 알려줘"'
-domain: non_finance
-category: monimo
-target: 켈리 챌린지
-case_type: normal
-dataset_id: NF_MONIMO_105
-seq: '105'
-required_tools:
-- challenge_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 켈리 챌린지
+  seq: '105'
+  dataset_id: NF_MONIMO_105
+  required_tools:
+  - challenge_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 참여 중인 켈리 챌린지 현황(챌린지명/달성현황)

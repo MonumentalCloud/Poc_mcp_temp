@@ -1,16 +1,17 @@
 ---
 name: securities_system_guide
 description: '사용자가 타사연금 이전 방법 등 삼성증권 시스템 이용 전반을 물을 때 사용합니다. 고객센터 연동 데이터 기반 안내에 적합합니다. 예: "타사연금 어떻게 가져와?"'
-domain: finance
-category: securities
-target: 시스템 안내
-case_type: normal
-dataset_id: F_STCK_221
-seq: '221'
-required_tools:
-- faq_search
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: securities
+  sector: finance
+  case_type: normal
+  target: 시스템 안내
+  seq: '221'
+  dataset_id: F_STCK_221
+  required_tools:
+  - faq_search
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 삼성증권 시스템 이용 관련 전반적인 질의를 할 경우

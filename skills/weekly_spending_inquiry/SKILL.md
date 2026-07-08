@@ -1,16 +1,17 @@
 ---
 name: weekly_spending_inquiry
 description: '사용자가 지난주 등 주차 기준의 총 소비금액을 물을 때 사용합니다. 예: "지난주 내가 얼마나 썼는지 알려줘"'
-domain: finance
-category: monimo
-target: 자산 (소비 only)
-case_type: normal
-dataset_id: F_MONIMO_088
-seq: 088
-required_tools:
-- spending_summary_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 자산 (소비 only)
+  seq: 088
+  dataset_id: F_MONIMO_088
+  required_tools:
+  - spending_summary_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 주차별 소비이력 안내 (소비)

@@ -2,16 +2,17 @@
 name: calc_loan_repayment
 description: '사용자가 대출 시 월 상환금이 얼마인지 계산을 원할 때 사용합니다. 원금·금리·기간·상환방식 기반 월 납입액 계산에 적합합니다. 예: "1억 대출하면 한달에
   얼마 내?"'
-domain: finance
-category: financial_info
-target: 금융계산기
-case_type: normal
-dataset_id: F_FIN_065
-seq: '065'
-required_tools:
-- financial_calculator
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: financial_info
+  sector: finance
+  case_type: normal
+  target: 금융계산기
+  seq: '065'
+  dataset_id: F_FIN_065
+  required_tools:
+  - financial_calculator
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 대출 이자 계산

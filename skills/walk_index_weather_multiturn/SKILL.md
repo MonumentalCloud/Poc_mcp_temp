@@ -2,16 +2,17 @@
 name: walk_index_weather_multiturn
 description: '지역을 설정하지 않은 사용자가 날씨·산책지수를 물을 때 사용합니다. 기준 지역을 되물은 뒤 해당 지역 날씨를 안내하는 멀티턴 처리에 적합합니다. 예: "지금
   날씨 알려줘"'
-domain: non_finance
-category: monimo
-target: 오늘의 소식
-case_type: multiturn
-dataset_id: NF_MONIMO_152
-seq: '152'
-required_tools:
-- weather_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: multiturn
+  target: 오늘의 소식
+  seq: '152'
+  dataset_id: NF_MONIMO_152
+  required_tools:
+  - weather_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 오늘의 소식(산책지수) 확인

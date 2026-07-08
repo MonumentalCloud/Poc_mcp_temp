@@ -1,17 +1,18 @@
 ---
 name: account_expected_interest
 description: '사용자가 현재 통장 잔액 기준으로 받을 수 있는 예상 이자를 물을 때 사용합니다. 예: "나 이번달 kb통장 이자 얼마 받을수있어?"'
-domain: finance
-category: monimo
-target: 마이통장
-case_type: normal
-dataset_id: F_MONIMO_096
-seq: 096
-required_tools:
-- account_list_inquiry
-- account_interest_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: finance
+  case_type: normal
+  target: 마이통장
+  seq: 096
+  dataset_id: F_MONIMO_096
+  required_tools:
+  - account_list_inquiry
+  - account_interest_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 통장잔액 기준 받을 수 있는 이자 확인

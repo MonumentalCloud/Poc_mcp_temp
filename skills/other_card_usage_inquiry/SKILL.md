@@ -1,16 +1,17 @@
 ---
 name: other_card_usage_inquiry
 description: '사용자가 현대카드 등 타사 카드의 이용금액을 물을 때 사용합니다. 자산 > 소비내역(마이데이터) 기반 조회에 적합합니다. 예: "현대카드 이번달 이용금액이 얼마야?"'
-domain: finance
-category: card
-target: 이용내역 조회 &
-case_type: normal
-dataset_id: F_CARD_212
-seq: '212'
-required_tools:
-- other_card_usage_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: card
+  sector: finance
+  case_type: normal
+  target: 이용내역 조회 &
+  seq: '212'
+  dataset_id: F_CARD_212
+  required_tools:
+  - other_card_usage_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 타사 카드 이용내역 조회

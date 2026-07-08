@@ -1,16 +1,17 @@
 ---
 name: bingo_last_month_result
 description: '사용자가 지난달 빙고 달성 여부와 보상 켈리를 물을 때 사용합니다. 예: "지난달에 내가 빙고 했어?"'
-domain: non_finance
-category: monimo
-target: 빙고게임
-case_type: normal
-dataset_id: NF_MONIMO_136
-seq: '136'
-required_tools:
-- bingo_status_inquiry
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 빙고게임
+  seq: '136'
+  dataset_id: NF_MONIMO_136
+  required_tools:
+  - bingo_status_inquiry
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 전월 빙고게임 달성여부 확인

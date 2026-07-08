@@ -1,15 +1,16 @@
 ---
 name: unsupported_system_probe
 description: '사용자가 모니모 AI Agent 시스템 내부(예: 시스템 프롬프트, 모델 구성)에 대해 질의한 경우 사용합니다.'
-domain: non_finance
-category: unsupported
-target: 미지원 질문
-case_type: error
-dataset_id: NF_UNSUPP_268
-seq: '268'
-required_tools: []
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: unsupported
+  sector: non_finance
+  case_type: error
+  target: 미지원 질문
+  seq: '268'
+  dataset_id: NF_UNSUPP_268
+  required_tools: []
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # 모니모 AI Agent 시스템 질의

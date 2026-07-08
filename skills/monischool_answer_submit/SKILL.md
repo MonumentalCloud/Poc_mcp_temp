@@ -1,17 +1,18 @@
 ---
 name: monischool_answer_submit
 description: '사용자가 모니스쿨 문제의 답안을 제출하려 할 때 사용합니다. 교시·답안 확인 후 제출 실행에 적합합니다. 예: "3교시 건강영역 답은 후추로 할게"'
-domain: non_finance
-category: monimo
-target: 모니스쿨
-case_type: normal
-dataset_id: NF_MONIMO_143
-seq: '143'
-required_tools:
-- monischool_quiz_inquiry
-- monischool_answer_submit
-hooks: scripts/hook.py
-version: 1.0.0
+metadata:
+  domain: monimo
+  sector: non_finance
+  case_type: normal
+  target: 모니스쿨
+  seq: '143'
+  dataset_id: NF_MONIMO_143
+  required_tools:
+  - monischool_quiz_inquiry
+  - monischool_answer_submit
+  hooks: scripts/hook.py
+  version: 1.0.0
 ---
 
 # (응시 가능한) 모니스쿨 문제 답안 제출
