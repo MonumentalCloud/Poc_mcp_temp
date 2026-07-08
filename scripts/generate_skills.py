@@ -19,8 +19,16 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import inspect  # noqa: E402
+
 from skill_map import SKILL_MAP           # noqa: E402
+from server.mock_tools import MOCK_TOOLS  # noqa: E402
 from server.tool_catalog import TOOL_CATALOG  # noqa: E402
+
+
+def tool_signature(name: str) -> str:
+    """목업 구현의 실제 시그니처 — 스킬 body의 툴 명세에 그대로 노출한다."""
+    return str(inspect.signature(MOCK_TOOLS[name])).replace(" -> dict", "")
 
 CATEGORY_SLUG = {
     "검색": "search", "이벤트": "event", "상품 정보": "product_info",
@@ -686,6 +694,15 @@ def build_skill_md(row: dict, entry: dict, hook_source: str) -> str:
                  "툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), "
                  "응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.")
     parts.append("")
+
+    if tools:
+        parts.append("## 사용 툴 명세")
+        parts.append("호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. "
+                     "모든 툴의 응답은 `{code, message, data}` envelope이며 `code == \"0000\"`이 성공이다. "
+                     "`Optional` 파라미터는 생략 가능.")
+        for t in tools:
+            parts.append(f"- `{t}{tool_signature(t)}` — {TOOL_CATALOG[t]}")
+        parts.append("")
 
     if guide_bullets:
         parts.append("## 응답 가이드")

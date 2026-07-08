@@ -27,6 +27,10 @@ metadata:
 
 > 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
+## 사용 툴 명세
+호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
+- `financial_calculator(calc_type: str, params: dict)` — 대출상환/적금/DSR/할부/연금/환율/세금/투자수익/목표저축 계산을 수행합니다
+
 ## 응답 가이드
 - 제한 연봉 기준 확인
 - 국민연금/건강보험/소득세 등 반영 안내

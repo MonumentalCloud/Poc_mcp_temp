@@ -29,6 +29,11 @@ metadata:
 
 > 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
+## 사용 툴 명세
+호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
+- `budget_inquiry()` — 사용자가 설정한 한 달 예산과 현재 소비 대비 현황을 조회합니다
+- `spending_summary_inquiry(year_month: Optional[str] = None, period: Optional[str] = None)` — 기준월/주차의 총 소비금액과 결제수단별·일별 내역, 전월 대비 증감을 조회합니다
+
 ## 응답 가이드
 - 이번달 사용자가 설정한 예산 금액, 소비금액 총합, 예산대비 +/-금액
 

@@ -165,7 +165,7 @@ def invoke_tool(tool_name: str, arguments: Optional[dict] = None) -> dict:
 
 @mcp.tool
 def describe_tools(tool_names: Optional[list[str]] = None) -> dict:
-    """도메인 툴의 설명과 파라미터 시그니처를 조회합니다 (invoke_tool 사용 전 참조용).
+    """도메인 툴의 설명과 파라미터 명세를 조회합니다 (invoke_tool 사용 전 참조용).
     tool_names 생략 시 전체 카탈로그를 반환합니다."""
     import inspect
     from .mock_tools import MOCK_TOOLS
@@ -176,8 +176,17 @@ def describe_tools(tool_names: Optional[list[str]] = None) -> dict:
         if n not in TOOL_CATALOG:
             out.append({"name": n, "error": "unknown tool"})
             continue
-        out.append({"name": n, "description": TOOL_CATALOG[n],
-                    "signature": str(inspect.signature(MOCK_TOOLS[n]))})
+        params = []
+        for p in inspect.signature(MOCK_TOOLS[n]).parameters.values():
+            ann = p.annotation
+            params.append({
+                "name": p.name,
+                "type": ann.__name__ if isinstance(ann, type) else str(ann).replace("typing.", ""),
+                "required": p.default is inspect.Parameter.empty,
+                "default": None if p.default is inspect.Parameter.empty else p.default,
+            })
+        out.append({"name": n, "description": TOOL_CATALOG[n], "parameters": params,
+                    "response_envelope": '{"code": "0000"=성공, "message", "data"}'})
     return {"count": len(out), "tools": out}
 
 

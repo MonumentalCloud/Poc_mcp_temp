@@ -29,6 +29,11 @@ metadata:
 
 > 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
+## 사용 툴 명세
+호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
+- `card_usage_inquiry(card_name: Optional[str] = None, period: Optional[str] = None)` — 특정 카드의 이용내역(기본 최근 2주)을 조회합니다
+- `card_immediate_payment(amount: Optional[int] = None, tx_ids: Optional[list[str]] = None)` — 카드 이용대금을 금액 기준 또는 건별로 즉시결제합니다 (실행형, 삼성카드만)
+
 ## 응답 가이드
 - 즉시결제 진행가능한 방법 비교설명(금액결제/건별결제)
 - 원하는 방법 문의 후 답변에 따른 즉시결제 실행

@@ -26,6 +26,10 @@ metadata:
 
 > 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
+## 사용 툴 명세
+호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
+- `bingo_status_inquiry(year_month: Optional[str] = None)` — 빙고게임 참여 현황(달성/미달성 미션, 스티커, 전월 결과)을 조회합니다
+
 ## 응답 가이드
 - 지난달 빙고 게임 이력 참고하여 달성 값과 보상 켈리 개수 안내
 

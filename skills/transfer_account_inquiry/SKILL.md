@@ -26,6 +26,10 @@ metadata:
 
 > 훅: 이 스킬은 훅 스크립트를 번들합니다(아래 'Hook' 섹션 = `scripts/hook.py` 동일 소스). 툴 호출 전 `before_tool`(파라미터 검증·실행형 가드), 호출 후 `after_tool`(오류·재시도 판단), 응답 전 `finalize`(문구 템플릿)를 실행하세요. MCP 서버의 `run_skill_hook` 툴로 원격 실행할 수 있습니다.
 
+## 사용 툴 명세
+호출은 MCP `invoke_tool(tool_name, arguments)` 게이트웨이를 사용한다. 모든 툴의 응답은 `{code, message, data}` envelope이며 `code == "0000"`이 성공이다. `Optional` 파라미터는 생략 가능.
+- `transfer_account_inquiry(payee_name: Optional[str] = None)` — 최근 송금 이력·즐겨찾기 기반 송금 가능 계좌 목록을 조회합니다
+
 ## 응답 가이드
 - 송금인 정보, 계좌번호(기존 송금일 및 송금계좌 혹은 송금상대방)
 
