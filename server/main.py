@@ -56,12 +56,22 @@ _vdb: SkillVDB | None = None
 _hook_cache: dict[str, Any] = {}
 
 
-def _get_vdb() -> SkillVDB:
+def _get_vdb():
+    """VDB backend 선택 (env):
+    - VDB_BACKEND=local (기본): vdb/skills_vdb.json 로드
+    - VDB_BACKEND=weaviate: Weaviate nearVector 검색 + 원격 임베딩 API
+      (EMBEDDER=qwen_api, QWEN_API_KEY, WEAVIATE_URL[, WEAVIATE_API_KEY] 필요)
+    """
     global _vdb
     if _vdb is None:
-        if not VDB_PATH.exists():
-            raise RuntimeError("vdb/skills_vdb.json not found — run `python scripts/build_vdb.py` first")
-        _vdb = SkillVDB.load(VDB_PATH)
+        if os.getenv("VDB_BACKEND", "local") == "weaviate":
+            from .skill_vdb import make_embedder
+            from .weaviate_vdb import WeaviateVDB
+            _vdb = WeaviateVDB(make_embedder(os.getenv("EMBEDDER", "qwen_api")))
+        else:
+            if not VDB_PATH.exists():
+                raise RuntimeError("vdb/skills_vdb.json not found — run `python scripts/build_vdb.py` first")
+            _vdb = SkillVDB.load(VDB_PATH)
     return _vdb
 
 

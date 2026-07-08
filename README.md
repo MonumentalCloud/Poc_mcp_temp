@@ -123,9 +123,43 @@ run_skill_hook(stage="finalize")   → 유저향 문구 템플릿
 
 ## VDB
 
-기본 임베더는 **문자 2~3-gram TF-IDF** (외부 모델·네트워크 불필요, 한국어에 토크나이저
-없이 동작). `server/skill_vdb.py`의 `Embedder` 인터페이스를 구현하면 문장 임베딩
-모델(예: multilingual-e5, OpenAI embeddings)로 교체 가능 — 인덱스 포맷은 동일하다.
+두 가지 backend를 환경변수로 선택한다 (검색 API·스킬 툴 인터페이스는 동일):
+
+| | `VDB_BACKEND=local` (기본) | `VDB_BACKEND=weaviate` (운영 구성) |
+|---|---|---|
+| 저장/검색 | `vdb/skills_vdb.json` + 코사인 | Weaviate nearVector (REST/GraphQL, gRPC 클라이언트 불필요) |
+| 임베딩 | 문자 2~3-gram TF-IDF (키·네트워크 불필요) | 원격 Qwen 임베딩 API (`EMBEDDER=qwen_api`) |
+| 시맨틱 매칭 | 어휘(문자) 기반 — 동의어에 약함 | Qwen3-Embedding 기반 시맨틱 매칭 |
+
+**Qwen 임베딩 API** (`server/skill_vdb.py: QwenAPIEmbedder`)는 OpenAI-호환
+`/v1/embeddings`를 호출한다. 기본값은 SiliconFlow 무료 티어:
+
+```bash
+export QWEN_API_KEY=sk-...                                # 필수
+export QWEN_API_BASE=https://api.siliconflow.cn/v1        # 기본값
+export QWEN_EMBEDDING_MODEL=Qwen/Qwen3-Embedding-0.6B     # 기본값
+# DashScope를 쓰려면: QWEN_API_BASE=https://dashscope.aliyuncs.com/compatible-mode/v1
+#                   QWEN_EMBEDDING_MODEL=text-embedding-v4
+```
+
+**Weaviate 적재** (한 번 실행 — 컬렉션 `MonimoSkill` 생성·업서트):
+
+```bash
+export WEAVIATE_URL=https://xxxx.weaviate.cloud
+export WEAVIATE_API_KEY=...                               # self-hosted 무인증이면 생략
+python scripts/build_vdb.py --backend weaviate
+```
+
+**서버를 Weaviate 모드로 실행** (fly.io면 `fly secrets set`으로 주입):
+
+```bash
+VDB_BACKEND=weaviate EMBEDDER=qwen_api \
+QWEN_API_KEY=... WEAVIATE_URL=... WEAVIATE_API_KEY=... python -m server.main
+```
+
+로컬 backend의 기본 임베더는 **문자 2~3-gram TF-IDF** (한국어에 토크나이저 없이
+동작). `Embedder` 인터페이스(`fit/embed/state/from_state`)를 구현하면 다른 임베딩
+모델로도 교체 가능 — 인덱스 포맷은 동일하다.
 
 리콜 (골든 대표 발화 172건, `scripts/eval_vdb.py`):
 
